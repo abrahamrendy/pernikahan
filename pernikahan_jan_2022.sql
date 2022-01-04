@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2022 at 06:08 AM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 7.3.28
+-- Generation Time: Jan 04, 2022 at 10:36 AM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -39,6 +40,7 @@ CREATE TABLE `calon_mempelai` (
   `tanggal_baptis` date DEFAULT NULL,
   `gereja_baptis` varchar(255) DEFAULT NULL,
   `tanggal_berjemaat` date DEFAULT NULL,
+  `no_kaj` varchar(255) DEFAULT NULL,
   `status_nikah` tinyint(4) NOT NULL COMMENT '0:belum menikah; 1: menikah; 2: cerai',
   `nama_ayah` varchar(255) NOT NULL,
   `nama_ibu` varchar(255) NOT NULL,
@@ -57,8 +59,19 @@ CREATE TABLE `calon_mempelai` (
   `surat_keterangan_belum_nikah` varchar(255) DEFAULT NULL,
   `kaj` varchar(255) DEFAULT NULL,
   `kom_100` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `calon_mempelai`
+--
+
+INSERT INTO `calon_mempelai` (`id`, `nama`, `gender`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `no_telp`, `tempat_ibadah`, `tanggal_baptis`, `gereja_baptis`, `tanggal_berjemaat`, `no_kaj`, `status_nikah`, `nama_ayah`, `nama_ibu`, `ktp`, `kk`, `akte_lahir`, `surat_baptis`, `surat_ganti_nama`, `surat_ganti_nama_ayah`, `surat_ganti_nama_ibu`, `ktp_ayah`, `ktp_ibu`, `akte_kematian_ayah`, `akte_kematian_ibu`, `surat_persetujuan_ortu`, `surat_keterangan_belum_nikah`, `kaj`, `kom_100`, `created_at`, `updated_at`) VALUES
+(27, 'Siska', 0, 'B', '1970-01-01', 'Sjajanai', '12334556677', 'GBI ARUNA', '1970-01-01', 'Gbi', '1970-01-01', '2344', 1, 'Sd', 'We', 'https://drive.google.com/open?id=1dswRTjSYjZFcOP-51Y6T9J8ch4aNF_ry', 'https://drive.google.com/open?id=1tifD0Dny-wH5xQOeskV73kUORKWi-YCM', 'https://drive.google.com/open?id=1U0mq8P1MDScRcn_LQGU8zC2sFlyL8DtD', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'https://drive.google.com/open?id=1-AkSAUTjqwCY6mmMk_xgvr4s82RNBMsy', NULL, NULL, NULL, '1970-01-01 00:00:00', '2022-01-04 09:29:38'),
+(28, 'Siska', 1, 'B', '1970-01-01', 'Jha', '123440000', 'GBI ARUNA', '1970-01-01', 'Gbi', '1970-01-01', '2377', 0, 'Jg', 'Jh', 'https://drive.google.com/open?id=1WKkSmwljhV1tkk26VeE4hWCzQe552qm6', 'https://drive.google.com/open?id=1EH8gTT_H92aRlGVzuCmnWJRSDjLd8Ax2', 'https://drive.google.com/open?id=1T3SoWuo7-1t0XjhuKXXTf-oRzuBR7tCh', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'https://drive.google.com/open?id=1z5btKwFl9EohqhORJXWmhNu9mmewIqT0', NULL, NULL, NULL, '1970-01-01 00:00:00', '2022-01-04 09:29:38'),
+(29, 'Henry', 0, 'Bdg', '1970-01-01', 'Dadali', '10191716', 'GBI ARUNA', '1970-01-01', NULL, '1970-01-01', NULL, 0, 'Gh', 'Hg', 'https://drive.google.com/open?id=1y7omoDQWUk350xh6wVOGCj_RmgmX6WKY', NULL, 'https://drive.google.com/open?id=1Ttmy0JtPQeY_N3V-YufEKNUQDvPe7YSq', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1970-01-01 00:00:00', '2022-01-04 09:29:38'),
+(30, 'Siska', 1, 'Bdg', '1970-01-01', 'Basalamah', '10191716', 'GBI ARUNA', '1970-01-01', NULL, '1970-01-01', NULL, 0, 'Sh', 'Hs', 'https://drive.google.com/open?id=1a-xl9IixCG0mUg3dhmMQ-715Cbtzj_Sr', NULL, 'https://drive.google.com/open?id=1sNao30qMCbFDVRcfS9zc4BPd7mo4TEad', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1970-01-01 00:00:00', '2022-01-04 09:29:38');
 
 -- --------------------------------------------------------
 
@@ -120,13 +133,22 @@ CREATE TABLE `pemberkatan` (
   `id` int(255) NOT NULL,
   `mempelai_pria` int(11) NOT NULL,
   `mempelai_wanita` int(11) NOT NULL,
-  `status_pernikahan` int(11) NOT NULL,
+  `status_pernikahan` varchar(30) NOT NULL,
   `tanggal` datetime NOT NULL,
-  `tempat` int(11) NOT NULL,
-  `surat_pertanyataan` varchar(255) DEFAULT NULL,
+  `tempat` varchar(255) NOT NULL,
+  `surat_pernyataan` varchar(255) DEFAULT NULL,
   `pas_foto` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pemberkatan`
+--
+
+INSERT INTO `pemberkatan` (`id`, `mempelai_pria`, `mempelai_wanita`, `status_pernikahan`, `tanggal`, `tempat`, `surat_pernyataan`, `pas_foto`, `created_at`, `updated_at`) VALUES
+(11, 27, 28, 'SP', '1970-01-01 00:00:00', 'Gbi Aruna', NULL, NULL, '1970-01-01 00:00:00', '2022-01-04 09:29:38'),
+(12, 29, 30, 'SP', '1970-01-01 00:00:00', 'GBI ARUNA', NULL, NULL, '1970-01-01 00:00:00', '2022-01-04 09:29:38');
 
 -- --------------------------------------------------------
 
@@ -228,7 +250,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `calon_mempelai`
 --
 ALTER TABLE `calon_mempelai`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -246,7 +268,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pemberkatan`
 --
 ALTER TABLE `pemberkatan`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
