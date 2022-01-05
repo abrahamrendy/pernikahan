@@ -33,8 +33,8 @@ class ExcelController extends Controller
     {
         \Excel::import(new ExcelSheetImport,$request->import_file);
 
-        // \Session::put('success', 'Your file is imported successfully in database.');
+        \Session::put('success', 'Your file is imported successfully in database.');
            
-        // return back();
+        return back();
     }
 }

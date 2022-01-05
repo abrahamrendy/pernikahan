@@ -16,20 +16,24 @@ class ExcelImport implements ToCollection, WithStartRow
         // echo "<pre>";
         // print_r($rows);
         // echo "</pre>";
+        // $date = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject(44898.41666666666424);
+        // print_r ($date);
+        // echo $date->date;
+        // echo date("Y-m-d H:i:s", strtotime($date->date));
         foreach ($rows as $row) 
         {
             // PRIA
             $pria = CalonMempelai::create([
                 'nama' => $row[2],
                 'gender' => '0',
-                'tanggal_lahir' => date("Y-m-d", strtotime($row[4])),
+                'tanggal_lahir' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[4]),
                 'tempat_lahir' => $row[3],
                 'alamat' => $row[6],
                 'no_telp' => $row[7],
                 'tempat_ibadah' => $row[8],
-                'tanggal_baptis' => date("Y-m-d", strtotime($row[10])),
+                'tanggal_baptis' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[10]),
                 'gereja_baptis' => $row[11],
-                'tanggal_berjemaat' => date("Y-m-d", strtotime($row[12])),
+                'tanggal_berjemaat' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[12]),
                 'no_kaj'=> $row[13],
                 'status_nikah' => ($row[14] == "Sudah pernah menikah") ? 1 : 0,
                 'nama_ayah' => $row[15],
@@ -49,21 +53,21 @@ class ExcelImport implements ToCollection, WithStartRow
                 'surat_keterangan_belum_nikah' => $row[49],
                 'kaj' => $row[50],
                 'kom_100' => $row[51],
-                'created_at' => date("Y-m-d H:i:s", strtotime($row[0])),
+                'created_at' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[0]),
             ]);
 
             // WANITA
             $wanita = CalonMempelai::create([
                 'nama' => $row[17],
                 'gender' => '1',
-                'tanggal_lahir' => date("Y-m-d", strtotime($row[19])),
+                'tanggal_lahir' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[19]),
                 'tempat_lahir' => $row[18],
                 'alamat' => $row[21],
                 'no_telp' => $row[22],
                 'tempat_ibadah' => $row[23],
-                'tanggal_baptis' => date("Y-m-d", strtotime($row[25])),
+                'tanggal_baptis' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[25]),
                 'gereja_baptis' => $row[26],
-                'tanggal_berjemaat' => date("Y-m-d", strtotime($row[27])),
+                'tanggal_berjemaat' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[27]),
                 'no_kaj'=> $row[28],
                 'status_nikah' => ($row[29] == "Sudah pernah menikah") ? 1 : 0,
                 'nama_ayah' => $row[30],
@@ -83,18 +87,18 @@ class ExcelImport implements ToCollection, WithStartRow
                 'surat_keterangan_belum_nikah' => $row[63],
                 'kaj' => $row[64],
                 'kom_100' => $row[65],
-                'created_at' => date("Y-m-d H:i:s", strtotime($row[0])),
+                'created_at' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[0]),
             ]);
 
             $pemberkatan = Pemberkatan::create([
                 'mempelai_pria' => $pria->id,
                 'mempelai_wanita' => $wanita->id,
                 'status_pernikahan' => $row[32],
-                'tanggal' => date("Y-m-d H:i:s", strtotime($row[34].' '.$row[35])),
+                'tanggal' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[34] + $row[35]),
                 'tempat' => $row[36],
                 'surat_pernyataan' => $row[66],
                 'pas_foto' => $row[67],
-                'created_at' => date("Y-m-d H:i:s", strtotime($row[0])),
+                'created_at' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[0]),
             ]);
         }
     }
