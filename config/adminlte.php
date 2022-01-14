@@ -324,6 +324,21 @@ return [
             'url'  => '/home',
             'icon' => 'fas fa-fw fa-home',
         ],
+        [
+            'text' => 'Didoakan (DD)',
+            'url'  => '/data/dd',
+            'icon' => 'fas fa-file-alt',
+        ],
+        [
+            'text' => 'Diberkati (SP)',
+            'url'  => '/data/sp',
+            'icon' => 'fas fa-file-alt',
+        ],
+        [
+            'text' => 'Diteguhkan (PP)',
+            'url'  => '/data/pp',
+            'icon' => 'fas fa-file-alt',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -389,6 +404,41 @@ return [
                     'type' => 'css',
                     'asset' => false,
                     'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                ],
+            ],
+        ],
+        'DatatablesPlugins' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/vendor/datatables-plugins/buttons/js/dataTables.buttons.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/vendor/datatables-plugins/buttons/js/buttons.bootstrap4.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/vendor/datatables-plugins/buttons/js/buttons.print.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/vendor/datatables-plugins/buttons/js/buttons.html5.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/vendor/datatables-plugins/buttons/js/buttons.colVis.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => '/vendor/datatables-plugins/buttons/css/buttons.bootstrap4.min.css',
                 ],
             ],
         ],

@@ -14,17 +14,16 @@ use App\Http\Controllers\ExcelController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/data/{type}', [App\Http\Controllers\DataController::class, 'index'])->name('data');
+Route::get('/get_mempelai/{id}', [App\Http\Controllers\DataController::class, 'getMempelai']);
 
 // Route for view/blade file.
 Route::get('importExportView', [ExcelController::class, 'importExportView'])->name('importExportView');
