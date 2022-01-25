@@ -169,6 +169,7 @@
                         <th>Tempat</th>
                         <th>Pas Foto</th>
                         <th>Tanggal Submit</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                   </thead>
@@ -184,7 +185,28 @@
                                 echo "<td>".$item->tempat."</td>";
                                 echo "<td>".$item->pas_foto."</td>";
                                 echo "<td>".$item->created_at."</td>";
-                                echo "<td>".""."</td>";
+                                if ($item->status == 0) {
+                                    echo "<td><span class='badge badge-secondary'>Pending</span></td>";
+                                    echo '<td>
+                                            <button type="button" class="btn btn-primary btn-sm btn-block">Submit</button>
+                                            <button type="button" class="btn btn-success btn-sm btn-block">Verify</button>';
+                                } else if ($item->status == 1) {
+                                    echo "<td><span class='badge badge-primary'>Submitted</span></td>";
+                                    echo '<td>
+                                            <button type="button" class="btn btn-success btn-sm btn-block">Verify</button>
+                                            <button type="button" class="btn btn-danger btn-sm btn-block">Decline</button>';
+                                } else if ($item->status == 2) {
+                                    echo "<td><span class='badge badge-success'>Verified</span></td>";
+                                    echo '<td>
+                                            <button type="button" class="btn btn-danger btn-sm btn-block">Decline</button>';
+                                } else {
+                                    echo "<td><span class='badge badge-danger'>Declined</span></td>";
+                                    echo '<td>
+                                            <button type="button" class="btn btn-primary btn-sm btn-block">Submit</button>
+                                            <button type="button" class="btn btn-success btn-sm btn-block">Verify</button>';
+                                }
+                                echo '<button type="button" class="btn btn-secondary btn-sm btn-block">Edit</button>
+                                        </td>';
                                 $ct++;
                             }
                         }
@@ -199,6 +221,7 @@
                         <th>Tempat</th>
                         <th>Pas Foto</th>
                         <th>Tanggal Submit</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                   </tfoot>

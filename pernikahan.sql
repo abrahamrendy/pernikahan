@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2022 at 10:36 AM
+-- Generation Time: Jan 25, 2022 at 05:35 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -68,10 +68,10 @@ CREATE TABLE `calon_mempelai` (
 --
 
 INSERT INTO `calon_mempelai` (`id`, `nama`, `gender`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `no_telp`, `tempat_ibadah`, `tanggal_baptis`, `gereja_baptis`, `tanggal_berjemaat`, `no_kaj`, `status_nikah`, `nama_ayah`, `nama_ibu`, `ktp`, `kk`, `akte_lahir`, `surat_baptis`, `surat_ganti_nama`, `surat_ganti_nama_ayah`, `surat_ganti_nama_ibu`, `ktp_ayah`, `ktp_ibu`, `akte_kematian_ayah`, `akte_kematian_ibu`, `surat_persetujuan_ortu`, `surat_keterangan_belum_nikah`, `kaj`, `kom_100`, `created_at`, `updated_at`) VALUES
-(27, 'Siska', 0, 'B', '1970-01-01', 'Sjajanai', '12334556677', 'GBI ARUNA', '1970-01-01', 'Gbi', '1970-01-01', '2344', 1, 'Sd', 'We', 'https://drive.google.com/open?id=1dswRTjSYjZFcOP-51Y6T9J8ch4aNF_ry', 'https://drive.google.com/open?id=1tifD0Dny-wH5xQOeskV73kUORKWi-YCM', 'https://drive.google.com/open?id=1U0mq8P1MDScRcn_LQGU8zC2sFlyL8DtD', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'https://drive.google.com/open?id=1-AkSAUTjqwCY6mmMk_xgvr4s82RNBMsy', NULL, NULL, NULL, '1970-01-01 00:00:00', '2022-01-04 09:29:38'),
-(28, 'Siska', 1, 'B', '1970-01-01', 'Jha', '123440000', 'GBI ARUNA', '1970-01-01', 'Gbi', '1970-01-01', '2377', 0, 'Jg', 'Jh', 'https://drive.google.com/open?id=1WKkSmwljhV1tkk26VeE4hWCzQe552qm6', 'https://drive.google.com/open?id=1EH8gTT_H92aRlGVzuCmnWJRSDjLd8Ax2', 'https://drive.google.com/open?id=1T3SoWuo7-1t0XjhuKXXTf-oRzuBR7tCh', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'https://drive.google.com/open?id=1z5btKwFl9EohqhORJXWmhNu9mmewIqT0', NULL, NULL, NULL, '1970-01-01 00:00:00', '2022-01-04 09:29:38'),
-(29, 'Henry', 0, 'Bdg', '1970-01-01', 'Dadali', '10191716', 'GBI ARUNA', '1970-01-01', NULL, '1970-01-01', NULL, 0, 'Gh', 'Hg', 'https://drive.google.com/open?id=1y7omoDQWUk350xh6wVOGCj_RmgmX6WKY', NULL, 'https://drive.google.com/open?id=1Ttmy0JtPQeY_N3V-YufEKNUQDvPe7YSq', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1970-01-01 00:00:00', '2022-01-04 09:29:38'),
-(30, 'Siska', 1, 'Bdg', '1970-01-01', 'Basalamah', '10191716', 'GBI ARUNA', '1970-01-01', NULL, '1970-01-01', NULL, 0, 'Sh', 'Hs', 'https://drive.google.com/open?id=1a-xl9IixCG0mUg3dhmMQ-715Cbtzj_Sr', NULL, 'https://drive.google.com/open?id=1sNao30qMCbFDVRcfS9zc4BPd7mo4TEad', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1970-01-01 00:00:00', '2022-01-04 09:29:38');
+(1, 'Siska', 0, 'B', '2000-09-09', 'Sjajanai', '12334556677', 'GBI ARUNA', '2012-01-23', 'Gbi', '2020-01-23', '2344', 1, 'Sd', 'We', 'https://drive.google.com/open?id=1dswRTjSYjZFcOP-51Y6T9J8ch4aNF_ry', 'https://drive.google.com/open?id=1tifD0Dny-wH5xQOeskV73kUORKWi-YCM', 'https://drive.google.com/open?id=1U0mq8P1MDScRcn_LQGU8zC2sFlyL8DtD', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'https://drive.google.com/open?id=1-AkSAUTjqwCY6mmMk_xgvr4s82RNBMsy', NULL, NULL, NULL, '2021-06-17 10:32:23', '2022-01-05 07:12:33'),
+(2, 'Siska', 1, 'B', '2001-09-09', 'Jha', '123440000', 'GBI ARUNA', '2011-02-15', 'Gbi', '2019-12-25', '2377', 0, 'Jg', 'Jh', 'https://drive.google.com/open?id=1WKkSmwljhV1tkk26VeE4hWCzQe552qm6', 'https://drive.google.com/open?id=1EH8gTT_H92aRlGVzuCmnWJRSDjLd8Ax2', 'https://drive.google.com/open?id=1T3SoWuo7-1t0XjhuKXXTf-oRzuBR7tCh', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'https://drive.google.com/open?id=1z5btKwFl9EohqhORJXWmhNu9mmewIqT0', NULL, NULL, NULL, '2021-06-17 10:32:23', '2022-01-05 07:12:33'),
+(3, 'Henry', 0, 'Bdg', '1980-04-10', 'Dadali', '10191716', 'GBI ARUNA', '1970-01-01', NULL, '1970-01-01', NULL, 0, 'Gh', 'Hg', 'https://drive.google.com/open?id=1y7omoDQWUk350xh6wVOGCj_RmgmX6WKY', NULL, 'https://drive.google.com/open?id=1Ttmy0JtPQeY_N3V-YufEKNUQDvPe7YSq', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-17 11:03:38', '2022-01-05 07:12:33'),
+(4, 'Siska', 1, 'Bdg', '1990-09-09', 'Basalamah', '10191716', 'GBI ARUNA', '1970-01-01', NULL, '1970-01-01', NULL, 0, 'Sh', 'Hs', 'https://drive.google.com/open?id=1a-xl9IixCG0mUg3dhmMQ-715Cbtzj_Sr', NULL, 'https://drive.google.com/open?id=1sNao30qMCbFDVRcfS9zc4BPd7mo4TEad', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-17 11:03:38', '2022-01-05 07:12:33');
 
 -- --------------------------------------------------------
 
@@ -138,6 +138,7 @@ CREATE TABLE `pemberkatan` (
   `tempat` varchar(255) NOT NULL,
   `surat_pernyataan` varchar(255) DEFAULT NULL,
   `pas_foto` varchar(255) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 0,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -146,9 +147,9 @@ CREATE TABLE `pemberkatan` (
 -- Dumping data for table `pemberkatan`
 --
 
-INSERT INTO `pemberkatan` (`id`, `mempelai_pria`, `mempelai_wanita`, `status_pernikahan`, `tanggal`, `tempat`, `surat_pernyataan`, `pas_foto`, `created_at`, `updated_at`) VALUES
-(11, 27, 28, 'SP', '1970-01-01 00:00:00', 'Gbi Aruna', NULL, NULL, '1970-01-01 00:00:00', '2022-01-04 09:29:38'),
-(12, 29, 30, 'SP', '1970-01-01 00:00:00', 'GBI ARUNA', NULL, NULL, '1970-01-01 00:00:00', '2022-01-04 09:29:38');
+INSERT INTO `pemberkatan` (`id`, `mempelai_pria`, `mempelai_wanita`, `status_pernikahan`, `tanggal`, `tempat`, `surat_pernyataan`, `pas_foto`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 2, 'SP', '2022-07-03 10:00:00', 'Gbi Aruna', NULL, NULL, 0, '2021-06-17 10:32:23', '2022-01-05 07:12:33'),
+(2, 3, 4, 'SP', '2022-12-03 10:00:00', 'GBI ARUNA', NULL, NULL, 2, '2021-06-17 11:03:38', '2022-01-05 07:12:33');
 
 -- --------------------------------------------------------
 
@@ -250,7 +251,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `calon_mempelai`
 --
 ALTER TABLE `calon_mempelai`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -268,7 +269,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pemberkatan`
 --
 ALTER TABLE `pemberkatan`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
