@@ -155,6 +155,48 @@
       </div>
     </div>
 
+    <!-- MODAL -->
+    <div id = "edit-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="EditModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+                <label for="nama">Calon Pria</label>
+                <input type="text" class="form-control" id="edit_nama_pria" disabled>
+            </div>
+            <div class="form-group">
+                <label for="alamat">Calon Wanita</label>
+                <input type="text" class="form-control" id="edit_nama_wanita" disabled>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="tempatlahir">Tempat</label>
+                  <input type="text" class="form-control" id="edit_tempat" placeholder="Tempat">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="tanggallahir">Tanggal</label>
+                  <input type="text" class="form-control" id="edit_tanggal" placeholder="Tanggal">
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="statusnikah">Pas Foto</label>
+                  <input type="text" class="form-control" id="edit_pasfoto" placeholder="Pas Foto">
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- CONTENT -->
     <div class="container">
         <div class="row">
@@ -179,8 +221,8 @@
                         if (isset($data)) {
                             foreach ($data as $item) {
                                 echo "<tr><td>".$ct."</td>";
-                                echo "<td><a class = 'details-person' href = '#' data-id =".$item->mempelai_pria." data-toggle='modal' data-target='.bd-example-modal-lg'>".$item->nama_pria."</a></td>";
-                                echo "<td><a href = '#' data-id =".$item->mempelai_wanita." data-toggle='modal' data-target='.bd-example-modal-lg'>".$item->nama_wanita."</a></td>";
+                                echo "<td><a class = 'details-person details-pria' href = '#' data-id =".$item->mempelai_pria." data-toggle='modal' data-target='.bd-example-modal-lg'>".$item->nama_pria."</a></td>";
+                                echo "<td><a href = '#' class = 'details-person details-wanita' data-id =".$item->mempelai_wanita." data-toggle='modal' data-target='.bd-example-modal-lg'>".$item->nama_wanita."</a></td>";
                                 echo "<td>".date("D, d-m-Y, g:i A", strtotime($item->tanggal))."</td>";
                                 echo "<td>".$item->tempat."</td>";
                                 echo "<td>".$item->pas_foto."</td>";
@@ -188,24 +230,24 @@
                                 if ($item->status == 0) {
                                     echo "<td><span class='badge badge-secondary'>Pending</span></td>";
                                     echo '<td>
-                                            <button type="button" class="btn btn-primary btn-sm btn-block">Submit</button>
-                                            <button type="button" class="btn btn-success btn-sm btn-block">Verify</button>';
+                                            <button type="button" class="submit-btn btn btn-primary btn-sm btn-block" data-id ="'.$item->id.'">Submit</button>
+                                            <button type="button" class="btn btn-success btn-sm btn-block" data-id ="'.$item->id.'">Verify</button>';
                                 } else if ($item->status == 1) {
                                     echo "<td><span class='badge badge-primary'>Submitted</span></td>";
                                     echo '<td>
-                                            <button type="button" class="btn btn-success btn-sm btn-block">Verify</button>
-                                            <button type="button" class="btn btn-danger btn-sm btn-block">Decline</button>';
+                                            <button type="button" class="verify-btn btn btn-success btn-sm btn-block" data-id ="'.$item->id.'">Verify</button>
+                                            <button type="button" class="decline-btn btn btn-danger btn-sm btn-block" data-id ="'.$item->id.'">Decline</button>';
                                 } else if ($item->status == 2) {
                                     echo "<td><span class='badge badge-success'>Verified</span></td>";
                                     echo '<td>
-                                            <button type="button" class="btn btn-danger btn-sm btn-block">Decline</button>';
+                                            <button type="button" class="decline-btn btn btn-danger btn-sm btn-block" data-id ="'.$item->id.'">Decline</button>';
                                 } else {
                                     echo "<td><span class='badge badge-danger'>Declined</span></td>";
                                     echo '<td>
-                                            <button type="button" class="btn btn-primary btn-sm btn-block">Submit</button>
-                                            <button type="button" class="btn btn-success btn-sm btn-block">Verify</button>';
+                                            <button type="button" class="submit-btn btn btn-primary btn-sm btn-block" data-id ="'.$item->id.'">Submit</button>
+                                            <button type="button" class="verify-btn btn btn-success btn-sm btn-block" data-id ="'.$item->id.'">Verify</button>';
                                 }
-                                echo '<button type="button" class="btn btn-secondary btn-sm btn-block">Edit</button>
+                                echo '<button type="button" class="edit-btn btn btn-secondary btn-sm btn-block" data-toggle="modal" data-target="#edit-modal" data-id ="'.$item->id.'">Edit</button>
                                         </td>';
                                 $ct++;
                             }
@@ -289,9 +331,91 @@
                     });
             });
 
-            $('#details-modal').on('hidden.bs.modal', function () {
+            $(document).on('click', '.edit-btn', function(){
+                var id = $(this).data('id');
+                var pria = $(this).parent().parent().find('.details-pria').text();
+                var wanita = $(this).parent().parent().find('.details-wanita').text();
+                $.ajax({
+                        url: base_url + '/get_pemberkatan/' + id,
+                        type:'GET',
+                        dataType : "json",
+                        success:function(data)
+                        {
+                            console.log(data);
+                            $.each(data, function(index, item) {
+                                $('#edit_nama_pria').val(pria);
+                                $('#edit_nama_wanita').val(wanita);
+                                $('#edit_tempat').val(item.tempat);
+                                $('#edit_tanggal').val(item.tanggal);
+                                $('#edit_pasfoto').val(item.pas_foto);
+                            });
+
+                        },
+                        error:function(xhr,status,error)
+                        {
+                            alert("Please try again later.");
+                        }
+                    });
+            });
+
+            $('#details-modal, #edit-modal').on('hidden.bs.modal', function () {
                 $(this).find("input,textarea,select").val('').end();
 
+            });
+
+
+            $(document).on('click', '.submit-btn', function(){
+                var id = $(this).data('id');
+                $.ajax({
+                        url: base_url + '/submit',
+                        type:'POST',
+                        dataType : "json",
+                        data : {_token:"{{ csrf_token() }}",id:id},
+                        success:function(data)
+                        {
+                            location.reload();
+                        },
+                        error:function(xhr,status,error)
+                        {
+                            alert("Please try again later.");
+                        }
+                    });
+            });
+
+            $(document).on('click', '.verify-btn', function(){
+                var id = $(this).data('id');
+                $.ajax({
+                        url: base_url + '/verify',
+                        type:'POST',
+                        dataType : "json",
+                        data : {_token:"{{ csrf_token() }}",id:id},
+                        success:function(data)
+                        {
+                            location.reload();
+                        },
+                        error:function(xhr,status,error)
+                        {
+                            alert("Please try again later.");
+                        }
+                    });
+            });
+
+            $(document).on('click', '.decline-btn', function(){
+                var id = $(this).data('id');
+                $.ajax({
+                        url: base_url + '/decline',
+                        type:'POST',
+                        dataType : "json",
+                        data : {_token:"{{ csrf_token() }}",id:id},
+                        success:function(data)
+                        {
+                            location.reload();
+                        },
+                        error:function(xhr,status,error)
+                        {
+                            alert("Please try again later.");
+                        }
+                    });
             });
                 
         });

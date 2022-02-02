@@ -47,4 +47,40 @@ class DataController extends Controller
 
         return json_encode($mempelai);
     }
+
+    public function getPemberkatan($id) {
+        $pemberkatan = DB::table('pemberkatan')->where('id', $id)->get();
+
+        return json_encode($pemberkatan);
+    }
+
+    public function submit(Request $request) {
+        $id = strip_tags($request->input('id'));
+
+        $affected = DB::table('pemberkatan')->where('id', $id)->update(['status' => 1]);
+
+        return response()->json([
+            'success' => '1',
+        ]);
+    }
+
+    public function verify(Request $request) {
+        $id = strip_tags($request->input('id'));
+
+        $affected = DB::table('pemberkatan')->where('id', $id)->update(['status' => 2]);
+
+        return response()->json([
+            'success' => '1',
+        ]);
+    }
+
+    public function decline(Request $request) {
+        $id = strip_tags($request->input('id'));
+
+        $affected = DB::table('pemberkatan')->where('id', $id)->update(['status' => 3]);
+
+        return response()->json([
+            'success' => '1',
+        ]);
+    }
 }

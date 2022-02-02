@@ -24,6 +24,12 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/data/{type}', [App\Http\Controllers\DataController::class, 'index'])->name('data');
 Route::get('/get_mempelai/{id}', [App\Http\Controllers\DataController::class, 'getMempelai']);
+Route::get('/get_pemberkatan/{id}', [App\Http\Controllers\DataController::class, 'getPemberkatan']);
+
+Route::post('/submit', [App\Http\Controllers\DataController::class, 'submit']);
+Route::post('/verify', [App\Http\Controllers\DataController::class, 'verify']);
+Route::post('/decline', [App\Http\Controllers\DataController::class, 'decline']);
+
 
 // Route for view/blade file.
 Route::get('importExportView', [ExcelController::class, 'importExportView'])->name('importExportView');
