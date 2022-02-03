@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group col-md-4">
                   <label for="tanggallahir">Tanggal Lahir</label>
-                  <input type="text" class="form-control" id="tanggallahir" placeholder="Tanggal Lahir">
+                  <input type="text" class="form-control singledatepicker" id="tanggallahir" placeholder="Tanggal Lahir">
                 </div>
                 <div class="form-group col-md-4">
                   <label for="statusnikah">Status Nikah</label>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="form-group col-md-4">
                   <label for="tanggalberjemaat">Tanggal Berjemaat</label>
-                  <input type="text" class="form-control" id="tanggalberjemaat" placeholder="Tanggal Berjemaat">
+                  <input type="text" class="form-control singledatepicker" id="tanggalberjemaat" placeholder="Tanggal Berjemaat">
                 </div>
                 <div class="form-group col-md-4">
                   <label for="nokaj">No. KAJ</label>
@@ -70,7 +70,7 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                   <label for="tanggalbaptis">Tanggal Baptis</label>
-                  <input type="text" class="form-control" id="tanggalbaptis" placeholder="Tanggal Baptis">
+                  <input type="text" class="form-control singledatepicker" id="tanggalbaptis" placeholder="Tanggal Baptis">
                 </div>
                 <div class="form-group col-md-4">
                   <label for="gerejabaptis">Gereja Baptis</label>
@@ -181,7 +181,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="tanggallahir">Tanggal</label>
-                  <input type="text" class="form-control" id="edit_tanggal" placeholder="Tanggal">
+                  <input type="text" class="form-control datepicker" id="edit_tanggal" placeholder="Tanggal">
                 </div>
                 <div class="form-group col-md-12">
                   <label for="statusnikah">Pas Foto</label>
@@ -295,6 +295,27 @@
             });
           });
 
+        $( ".datepicker" ).daterangepicker({
+          singleDatePicker: true,
+          timePicker: true,
+          timePicker24Hour: true,
+          showDropdowns: true,
+          drops: "auto",
+          locale: {
+            format: 'DD-MM-YYYY HH:mm'
+          }
+        });
+
+        $( ".singledatepicker" ).daterangepicker({
+          autoApply: true,
+          singleDatePicker: true,
+          showDropdowns: true,
+          drops: "auto",
+          locale: {
+            format: 'DD-MM-YYYY'
+          }
+        });
+
         $(document).ready(function(){
             $(document).on('click', '.details-person', function(){
                 var id = $(this).data('id');
@@ -310,13 +331,31 @@
                                 $('#alamat').val(item.alamat);
                                 $('#notelp').val(item.no_telp);
                                 $('#tempatlahir').val(item.tempat_lahir);
-
+                                var tempDate = moment(item.tanggal_lahir).toDate();
+                                var date = moment(tempDate).format("DD-MM-YYYY");
+                                $('#tanggallahir').val(date);
                                 $('#tempatberibadah').val(item.tempat_ibadah);
+                                
+                                if(item.tanggal_baptis != "1970-01-01") {
+                                  tempDate = moment(item.tanggal_baptis).toDate();
+                                  date = moment(tempDate).format("DD-MM-YYYY");
+                                } else {
+                                  date = "";
+                                }
+                                $('#tanggalbaptis').val(date);
 
                                 $('#nokaj').val(item.no_kaj);
 
                                 $('#gerejabaptis').val(item.gereja_baptis);
 
+                                if(item.tanggal_berjemaat != "1970-01-01") {
+                                  tempDate = moment(item.tanggal_berjemaat).toDate();
+                                  date = moment(tempDate).format("DD-MM-YYYY");
+                                } else {
+                                  date = "";
+                                }
+                                $('#tanggalberjemaat').val(date);
+                                
                                 $('#namaayah').val(item.nama_ayah);
                                 $('#namaibu').val(item.nama_ibu);
 
@@ -346,7 +385,9 @@
                                 $('#edit_nama_pria').val(pria);
                                 $('#edit_nama_wanita').val(wanita);
                                 $('#edit_tempat').val(item.tempat);
-                                $('#edit_tanggal').val(item.tanggal);
+                                var tempDate = moment(item.tanggal).toDate();
+                                var date = moment(tempDate).format("DD-MM-YYYY HH:mm");
+                                $('#edit_tanggal').val(date);
                                 $('#edit_pasfoto').val(item.pas_foto);
                             });
 
