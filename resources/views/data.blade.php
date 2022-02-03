@@ -19,7 +19,7 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLongTitle">Details Calon</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -55,6 +55,24 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
+                  <label for="ktp">KTP</label>
+                  <div><a href="#" id="ktplink" target="_blank">Link</a></div>
+                  <input type="file" class="form-control-file" id="ktp">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="kartukeluarga">Kartu Keluarga</label>
+                  <div><a href="#" id="kartukeluargalink" target="_blank">Link</a></div>
+                  <input type="file" class="form-control-file" id="kartukeluarga">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="aktelahir">Akte Lahir</label>
+                  <div><a href="#" id="aktelahirlink" target="_blank">Link</a></div>
+                  <input type="file" class="form-control-file" id="aktelahir">
+                </div>
+            </div>
+            <hr>
+            <div class="form-row">
+                <div class="form-group col-md-4">
                   <label for="tempatberibadah">Tempat Beribadah</label>
                   <input type="text" class="form-control" id="tempatberibadah" placeholder="Tempat Beribadah">
                 </div>
@@ -68,41 +86,37 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                   <label for="tanggalbaptis">Tanggal Baptis</label>
                   <input type="text" class="form-control singledatepicker" id="tanggalbaptis" placeholder="Tanggal Baptis">
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                   <label for="gerejabaptis">Gereja Baptis</label>
                   <input type="text" class="form-control" id="gerejabaptis" placeholder="Gereja Baptis">
                 </div>
-                <div class="form-group col-md-4">
-                  <label for="suratbaptis">Surat Baptis</label>
-                  <input type="text" class="form-control" id="inputPassword4" placeholder="Password">
-                </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-4">
-                  <label for="ktp">KTP</label>
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                <div class="form-group col-md-6">
+                  <label for="suratbaptis">Surat Baptis</label>
+                  <div><a href="#" id="suratbaptislink">Link</a></div>
+                  <input type="file" class="form-control-file" id="suratbaptis">
                 </div>
-                <div class="form-group col-md-4">
-                  <label for="kartukeluarga">Kartu Keluarga</label>
-                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-                </div>
-                <div class="form-group col-md-4">
-                  <label for="aktelahir">Akte Lahir</label>
-                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                <div class="form-group col-md-6">
+                  <label for="suratgantinama">Surat Ganti Nama</label>
+                  <div><a href="#" id="suratgantinamalink" target="_blank">Link</a></div>
+                  <input type="file" class="form-control-file" id="suratgantinama">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="kaj">KAJ</label>
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                  <div><a href="#" id="kajlink">Link</a></div>
+                  <input type="file" class="form-control-file" id="kaj">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="kom100">KOM 100</label>
-                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                  <div><a href="#" id="kom100link">Link</a></div>
+                  <input type="file" class="form-control-file" id="kom100">
                 </div>
             </div>
             <hr>
@@ -119,31 +133,49 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="ktpayah">KTP Ayah</label>
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                  <div><a href="#" id="ktpayahlink" target="_blank">Link</a></div>
+                  <input type="file" class="form-control-file" id="ktpayah">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="ktpibu">KTP Ibu</label>
-                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                  <div><a href="#" id="ktpibulink" target="_blank">Link</a></div>
+                  <input type="file" class="form-control-file" id="ktpibu">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="suratgantinamaayah">Surat Ganti Nama Ayah</label>
+                  <div><a href="#" id="suratgantinamaayahlink" target="_blank">Link</a></div>
+                  <input type="file" class="form-control-file" id="suratgantinamaayah">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="suratgantinamaibu">Surat Ganti Nama Ibu</label>
+                  <div><a href="#" id="suratgantinamaibulink" target="_blank">Link</a></div>
+                  <input type="file" class="form-control-file" id="suratgantinamaibu">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="aktekematianayah">Akte Kematian Ayah</label>
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                  <div><a href="#" id="aktekematianayahlink" target="_blank">Link</a></div>
+                  <input type="file" class="form-control-file" id="aktekematianayah">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="aktekematianibu">Akte Kematian Ibu</label>
-                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                  <div><a href="#" id="aktekematianibulink" target="_blank">Link</a></div>
+                  <input type="file" class="form-control-file" id="aktekematianibu">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="suratpersetujuanortu">Surat Persetujuan Orang Tua</label>
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                  <div><a href="#" id="suratpersetujuanortulink" target="_blank">Link</a></div>
+                  <input type="file" class="form-control-file" id="suratpersetujuanortu">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="suratketeranganbelumnikah">Surat Keterangan Belum Nikah</label>
-                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                  <div><a href="#" id="suratketeranganbelumnikahlink" target="_blank">Link</a></div>
+                  <input type="file" class="form-control-file" id="suratketeranganbelumnikah">
                 </div>
             </div>
           </div>
@@ -160,32 +192,33 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLongTitle">Edit</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <div class="form-group">
-                <label for="nama">Calon Pria</label>
+                <label for="edit_nama_pria">Calon Pria</label>
                 <input type="text" class="form-control" id="edit_nama_pria" disabled>
             </div>
             <div class="form-group">
-                <label for="alamat">Calon Wanita</label>
+                <label for="edit_nama_wanita">Calon Wanita</label>
                 <input type="text" class="form-control" id="edit_nama_wanita" disabled>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="tempatlahir">Tempat</label>
+                  <label for="edit_tempat">Tempat</label>
                   <input type="text" class="form-control" id="edit_tempat" placeholder="Tempat">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="tanggallahir">Tanggal</label>
+                  <label for="edit_tanggal">Tanggal</label>
                   <input type="text" class="form-control datepicker" id="edit_tanggal" placeholder="Tanggal">
                 </div>
                 <div class="form-group col-md-12">
-                  <label for="statusnikah">Pas Foto</label>
-                  <input type="text" class="form-control" id="edit_pasfoto" placeholder="Pas Foto">
+                  <label for="edit_pasfoto">Pas Foto</label>
+                  <div><a href="#" id="edit_pasfotolink" target="_blank">Link</a></div>
+                  <input type="file" class="form-control-file" id="edit_pasfoto">
                 </div>
             </div>
           </div>
@@ -225,7 +258,11 @@
                                 echo "<td><a href = '#' class = 'details-person details-wanita' data-id =".$item->mempelai_wanita." data-toggle='modal' data-target='.bd-example-modal-lg'>".$item->nama_wanita."</a></td>";
                                 echo "<td>".date("D, d-m-Y, g:i A", strtotime($item->tanggal))."</td>";
                                 echo "<td>".$item->tempat."</td>";
-                                echo "<td>".$item->pas_foto."</td>";
+                                if (isset($item->pas_foto)) {
+                                  echo "<td><a href=".$item->pas_foto." target=_blank>Link</a></td>";
+                                } else {
+                                  echo "<td></td>";
+                                }
                                 echo "<td>".$item->created_at."</td>";
                                 if ($item->status == 0) {
                                     echo "<td><span class='badge badge-secondary'>Pending</span></td>";
@@ -358,8 +395,21 @@
                                 
                                 $('#namaayah').val(item.nama_ayah);
                                 $('#namaibu').val(item.nama_ibu);
-
-
+                                $('#ktplink').attr("href", item.ktp);
+                                $('#kartukeluargalink').attr("href", item.kk);
+                                $('#aktelahirlink').attr("href", item.akte_lahir);
+                                $('#suratbaptislink').attr("href", item.surat_baptis);
+                                $('#suratgantinamalink').attr("href", item.surat_ganti_nama);
+                                $('#suratgantinamaayahlink').attr("href", item.surat_ganti_nama_ayah);
+                                $('#suratgantinamaibulink').attr("href", item.surat_ganti_nama_ibu);
+                                $('#ktpayahlink').attr("href", item.ktp_ayah);
+                                $('#ktpibulink').attr("href", item.ktp_ibu);
+                                $('#aktekematianayahlink').attr("href", item.akte_kematian_ayah);
+                                $('#aktekematianibulink').attr("href", item.akte_kematian_ibu);
+                                $('#suratpersetujuanortulink').attr("href", item.surat_persetujuan_ortu);
+                                $('#suratketeranganbelumnikahlink').attr("href", item.surat_keterangan_belum_nikah);
+                                $('#kajlink').attr("href", item.kaj);
+                                $('#kom100link').attr("href", item.kom_100);
                             });
 
                         },
@@ -388,7 +438,7 @@
                                 var tempDate = moment(item.tanggal).toDate();
                                 var date = moment(tempDate).format("DD-MM-YYYY HH:mm");
                                 $('#edit_tanggal').val(date);
-                                $('#edit_pasfoto').val(item.pas_foto);
+                                $('#edit_pasfotolink').attr("href", item.pas_foto);
                             });
 
                         },
