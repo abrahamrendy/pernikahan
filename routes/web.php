@@ -31,6 +31,10 @@ Route::post('/verify', [App\Http\Controllers\DataController::class, 'verify']);
 Route::post('/decline', [App\Http\Controllers\DataController::class, 'decline']);
 
 
+Route::post('/edit', [App\Http\Controllers\DataController::class, 'submitEditPemberkatan'])->name('submitEditPemberkatan');
+Route::post('/edit-details', [App\Http\Controllers\DataController::class, 'submitEditDetails'])->name('submitEditDetails');
+
+
 // Route for view/blade file.
 Route::get('importExportView', [ExcelController::class, 'importExportView'])->name('importExportView');
 // Route for export/download tabledata to .csv, .xls or .xlsx
