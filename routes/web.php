@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExcelController;
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,6 @@ Route::get('importExportView', [ExcelController::class, 'importExportView'])->na
 Route::get('exportExcel/{type}', [ExcelController::class, 'exportExcel'])->name('exportExcel');
 // Route for import excel data to database.
 Route::post('importExcel', [ExcelController::class, 'importExcel'])->name('importExcel');
+
+Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
+Route::get('view', [PDFController::class, 'view']);
