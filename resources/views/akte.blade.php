@@ -24,6 +24,7 @@
                     <div class="col-md-4"></div>
                     <div class="col-md-4 font-medium">
                         <p class="font-size-small">
+                            asdasfasdsa
                             "Demikianlah mereka bukan lagi dua melainkan satu, karena itu apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia"
                             <br>
                             (Matius 19:6)
