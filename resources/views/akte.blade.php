@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>Hi</title>
-    <link href="{{ URL::asset('css/bootstrap.min.css'); }} " rel="stylesheet">
-    <!-- <link href="{{ public_path('css/bootstrap.min.css'); }} " rel="stylesheet"> -->
+    <!-- <link href="{{ URL::asset('css/bootstrap.min.css'); }} " rel="stylesheet"> -->
+    <link href="{{ public_path('css/bootstrap.min.css'); }} " rel="stylesheet">
 </head>
 <body>
     <div class="container">
