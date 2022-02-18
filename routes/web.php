@@ -45,3 +45,6 @@ Route::post('importExcel', [ExcelController::class, 'importExcel'])->name('impor
 
 Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
 Route::get('view', [PDFController::class, 'view']);
+
+
+
