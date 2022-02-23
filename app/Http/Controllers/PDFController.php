@@ -31,7 +31,8 @@ class PDFController extends Controller
         ];
           
         $pdf = PDF::loadView('akte', $data);
-    
+        $pdf->setPaper('a4', 'portrait');
+
         return $pdf->download('akte.pdf');
     }
 
