@@ -6,6 +6,9 @@
     <!-- <link href="{{ URL::asset('css/akte.css'); }} " rel="stylesheet"> -->
     <!-- <link href="{{ public_path('css/bootstrap.min.css'); }} " rel="stylesheet"> -->
     <!-- <link href="{{ public_path('css/akte.css'); }} " rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -109,33 +112,7 @@
 <style>
     /*@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600;700&display=swap');*/
 
-    @font-face {
-        font-family: Roboto Serif;
-        src: url({{ storage_path('fonts\RobotoSerif-Light.ttf') }}) format("truetype");
-        font-weight: 300; // use the matching font-weight here ( 100, 200, 300, 400, etc).
-        font-style: normal; // use the matching font-style here
-    }
-
-    @font-face {
-        font-family: Roboto Serif;
-        src: url({{ storage_path('fonts\RobotoSerif-Regular.ttf') }}) format("truetype");
-        font-weight: 400; // use the matching font-weight here ( 100, 200, 300, 400, etc).
-        font-style: normal; // use the matching font-style here
-    }
-
-    @font-face {
-        font-family: Roboto Serif;
-        src: url({{ storage_path('fonts\RobotoSerif-Medium.ttf') }}) format("truetype");
-        font-weight: 500; // use the matching font-weight here ( 100, 200, 300, 400, etc).
-        font-style: normal; // use the matching font-style here
-    }
-
-    @font-face {
-        font-family: Roboto Serif;
-        src: url({{ storage_path('fonts\RobotoSerif-SemiBold.ttf') }}) format("truetype");
-        font-weight: 600; // use the matching font-weight here ( 100, 200, 300, 400, etc).
-        font-style: normal; // use the matching font-style here
-    }
+    
 
 
     .container {
