@@ -3,7 +3,9 @@
 <head>
     <title>Hi</title>
     <!-- <link href="{{ URL::asset('css/bootstrap.min.css'); }} " rel="stylesheet"> -->
+    <!-- <link href="{{ URL::asset('css/akte.css'); }} " rel="stylesheet"> -->
     <link href="{{ public_path('css/bootstrap.min.css'); }} " rel="stylesheet">
+    <link href="{{ public_path('css/akte.css'); }} " rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -22,8 +24,8 @@
                     </div>
                     <div class="col-md-4"></div>
                     <div class="col-md-4"></div>
-                    <div class="col-md-4 font-medium">
-                        <p class="font-size-small">
+                    <div class="col-md-4 font-medium" style="border-top: 1px solid; border-bottom: 1px solid;">
+                        <p class="font-size-small" style="margin: 10px 0px;">
                             "Demikianlah mereka bukan lagi dua melainkan satu, karena itu apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia"
                             <br>
                             (Matius 19:6)
@@ -34,16 +36,16 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="container margin-top-3 line-height-2" style="text-align: left">
             <div class="row">
                 <div class="col-md-12">
-                    <p>
+                    <div>
                         PADA HARI .... TANGGAL .... DIHADAPAN SIDANG JEMAAT TUHAN TELAH .... PERNIKAHAN YANG KUDUS DARI
-                    </p>
+                    </div>
                 </div>
 
                 <div class="col-md-12">
-                    <h4>ASD ASD ASD</h4>
+                    <h4 class="text-center margin-vertical-2 font-bold">ASD ASD ASD</h4>
                     <div class="row">
                         <div class="col-md-6">
                             dilahirkan di ...
@@ -58,11 +60,11 @@
                             dan ...
                         </div>
                     </div>
-                    <p>dengan</p>
+                    <div class="text-center margin-top-2">dengan</div>
                 </div>
 
                 <div class="col-md-12">
-                    <h4>ASD ASD ASD</h4>
+                    <h4 class="text-center margin-vertical-2 font-bold">ASD ASD ASD</h4>
                     <div class="row">
                         <div class="col-md-6">
                             dilahirkan di ...
@@ -79,7 +81,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-12 margin-top-2">
                     <p>
                         Upacara Pernikahan yang kudus ini telah dilakukan dalam Nama TUHAN YESUS KRISTUS oleh: ...
                     </p>
@@ -104,30 +106,6 @@
 </body>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600;700&display=swap');
-
-    body {
-        text-align: center;
-    }
-
-    .font-roboto-serif {
-        font-family: 'Roboto Serif', sans-serif !important;
-    }
-
-    .font-semibold {
-        font-weight: 600 !important;
-    }
-
-    .font-bold {
-        font-weight: 700 !important;
-    }
-
-    .font-medium {
-        font-weight: 500 !important;
-    }
-
-    .font-size-small {
-        font-size: 9pt;
-    }
+    
 </style>
 </html>
