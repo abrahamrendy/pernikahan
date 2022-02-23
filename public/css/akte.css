@@ -1,49 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600;700&display=swap');
 
-    body {
-        text-align: center;
-        font-family: 'Roboto Serif', sans-serif;
-        width: 210mm;
-        height: 297mm;
-    }
+body {
+    text-align: center;
+    font-family: 'Roboto Serif', sans-serif;
+    width: 210mm;
+    height: 297mm;
+}
 
-    .font-roboto-serif {
-        font-family: 'Roboto Serif', sans-serif !important;
-    }
+.font-roboto-serif {
+    font-family: 'Roboto Serif', sans-serif !important;
+}
 
-    .font-semibold {
-        font-weight: 600 !important;
-    }
+.font-semibold {
+    font-weight: 600 !important;
+}
 
-    .font-bold {
-        font-weight: 700 !important;
-    }
+.font-bold {
+    font-weight: 700 !important;
+}
 
-    .font-medium {
-        font-weight: 500 !important;
-    }
+.font-medium {
+    font-weight: 500 !important;
+}
 
-    .font-size-small {
-        font-size: 9pt;
-    }
+.font-size-small {
+    font-size: 9pt;
+}
 
-    .text-center {
-        text-align: center !important;
-    }
+.text-center {
+    text-align: center !important;
+}
 
-    .margin-top-3 {
-        margin-top: 3em !important;
-    }
+.margin-top-3 {
+    margin-top: 3em !important;
+}
 
-    .margin-top-2 {
-        margin-top: 2em !important;
-    }
+.margin-top-2 {
+    margin-top: 2em !important;
+}
 
-    .margin-vertical-2 {
-        margin-top: 1.5em !important;
-        margin-bottom: 1.5em !important;
-    }
+.margin-vertical-2 {
+    margin-top: 1.5em !important;
+    margin-bottom: 1.5em !important;
+}
 
-    .line-height-2 {
-        line-height: 2em;
-    }
+.line-height-2 {
+    line-height: 2em;
+}
