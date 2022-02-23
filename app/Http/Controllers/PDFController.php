@@ -31,6 +31,7 @@ class PDFController extends Controller
         ];
           
         $pdf = PDF::loadView('akte', $data);
+        $pdf->set('chroot', storage_path());
         $pdf->setPaper('a4', 'portrait');
 
         return $pdf->download('akte.pdf');
