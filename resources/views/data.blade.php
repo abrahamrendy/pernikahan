@@ -107,7 +107,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="suratbaptis">Surat Baptis</label>
-                      <div><a href="#" id="suratbaptislink">Link</a></div>
+                      <div><a href="#" id="suratbaptislink" target="_blank">Link</a></div>
                       <input type="file" class="form-control-file" id="suratbaptis" name="suratbaptis">
                       <br>
                       <textarea class="form-control" id="suratbaptis_text" rows="2" name="suratbaptis_text"></textarea>
@@ -123,14 +123,14 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="kaj">KAJ</label>
-                      <div><a href="#" id="kajlink">Link</a></div>
+                      <div><a href="#" id="kajlink" target="_blank">Link</a></div>
                       <input type="file" class="form-control-file" id="kaj" name="kaj">
                       <br>
                       <textarea class="form-control" id="kaj_text" rows="2" name="kaj_text"></textarea>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="kom100">KOM 100</label>
-                      <div><a href="#" id="kom100link">Link</a></div>
+                      <div><a href="#" id="kom100link" target="_blank">Link</a></div>
                       <input type="file" class="form-control-file" id="kom100" name="kom100">
                       <br>
                       <textarea class="form-control" id="kom100_text" rows="2" name="kom100_text"></textarea>
