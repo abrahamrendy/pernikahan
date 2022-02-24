@@ -92,8 +92,10 @@ class DataController extends Controller
         $pas_foto = strip_tags($request->input('pas_foto_text'));
         if($request->hasFile('pas_foto_file')){ 
             $pas_foto_file = $request->file('pas_foto_file');
-            $path = $pas_foto_file->storeAs('public/pemberkatan','pas_foto_'.$id.".".$pas_foto_file->getClientOriginalExtension());
-            $pas_foto = asset('storage').'/pemberkatan/pas_foto_'.$id.".".$pas_foto_file->getClientOriginalExtension();
+            // $path = $pas_foto_file->storeAs('public/pemberkatan','pas_foto_'.$id.".".$pas_foto_file->getClientOriginalExtension());
+            $path = $pas_foto_file->storeAs('pemberkatan','pas_foto_'.$id.".".$pas_foto_file->getClientOriginalExtension(), 'public_uploads');
+            // $pas_foto = asset('storage').'/pemberkatan/pas_foto_'.$id.".".$pas_foto_file->getClientOriginalExtension();
+            $pas_foto = '/uploads'.'/pemberkatan/pas_foto_'.$id.".".$pas_foto_file->getClientOriginalExtension();
         };
         if($pas_foto == ""){
             $pas_foto = null;
