@@ -130,8 +130,10 @@ class DataController extends Controller
         $ktp = strip_tags($request->input('ktp_text'));
         if($request->hasFile('ktp')){ 
             $ktp_file = $request->file('ktp');
-            $path = $ktp_file->storeAs('public/details/'.$nama.$id,'ktp_'.$id.".".$ktp_file->getClientOriginalExtension());
-            $ktp = asset('storage').'/details/'.$nama.$id.'/ktp_'.$id.".".$ktp_file->getClientOriginalExtension();
+            // $path = $ktp_file->storeAs('public/details/'.$nama.$id,'ktp_'.$id.".".$ktp_file->getClientOriginalExtension());
+            $path = $ktp_file->storeAs('details/'.$nama.$id,'ktp_'.$id.".".$ktp_file->getClientOriginalExtension(), 'public_uploads');
+            // $ktp = asset('storage').'/details/'.$nama.$id.'/ktp_'.$id.".".$ktp_file->getClientOriginalExtension();
+            $ktp = '/uploads'.'/details/'.$nama.$id.'/ktp_'.$id.".".$ktp_file->getClientOriginalExtension();
         };
         if($ktp == ""){
             $ktp = null;
@@ -139,8 +141,8 @@ class DataController extends Controller
         $kk = strip_tags($request->input('kartukeluarga_text'));
         if($request->hasFile('kartukeluarga')){ 
             $kk_file = $request->file('kartukeluarga');
-            $path = $kk_file->storeAs('public/details/'.$nama.$id,'kk_'.$id.".".$kk_file->getClientOriginalExtension());
-            $kk = asset('storage').'/details/'.$nama.$id.'/kk_'.$id.".".$kk_file->getClientOriginalExtension();
+            $path = $kk_file->storeAs('details/'.$nama.$id,'kk_'.$id.".".$kk_file->getClientOriginalExtension(), 'public_uploads');
+            $kk = '/uploads'.'/details/'.$nama.$id.'/kk_'.$id.".".$kk_file->getClientOriginalExtension();
         };
         if($kk == ""){
             $kk = null;
@@ -148,8 +150,8 @@ class DataController extends Controller
         $aktelahir = strip_tags($request->input('aktelahir_text'));
         if($request->hasFile('aktelahir')){ 
             $file = $request->file('aktelahir');
-            $path = $file->storeAs('public/details/'.$nama.$id,'aktelahir_'.$id.".".$file->getClientOriginalExtension());
-            $aktelahir = asset('storage').'/details/'.$nama.$id.'/aktelahir_'.$id.".".$file->getClientOriginalExtension();
+            $path = $file->storeAs('details/'.$nama.$id,'aktelahir_'.$id.".".$file->getClientOriginalExtension(), 'public_uploads');
+            $aktelahir = '/uploads'.'/details/'.$nama.$id.'/aktelahir_'.$id.".".$file->getClientOriginalExtension();
         };
         if($aktelahir == ""){
             $aktelahir = null;
@@ -165,8 +167,8 @@ class DataController extends Controller
         $suratbaptis = strip_tags($request->input('suratbaptis_text'));
         if($request->hasFile('suratbaptis')){ 
             $file = $request->file('suratbaptis');
-            $path = $file->storeAs('public/details/'.$nama.$id,'suratbaptis_'.$id.".".$file->getClientOriginalExtension());
-            $suratbaptis = asset('storage').'/details/'.$nama.$id.'/suratbaptis_'.$id.".".$file->getClientOriginalExtension();
+            $path = $file->storeAs('details/'.$nama.$id,'suratbaptis_'.$id.".".$file->getClientOriginalExtension(), 'public_uploads');
+            $suratbaptis = '/uploads'.'/details/'.$nama.$id.'/suratbaptis_'.$id.".".$file->getClientOriginalExtension();
         };
         if($suratbaptis == ""){
             $suratbaptis = null;
@@ -174,8 +176,8 @@ class DataController extends Controller
         $suratgantinama = strip_tags($request->input('suratgantinama_text'));
         if($request->hasFile('suratgantinama')){ 
             $file = $request->file('suratgantinama');
-            $path = $file->storeAs('public/details/'.$nama.$id,'suratgantinama_'.$id.".".$file->getClientOriginalExtension());
-            $suratgantinama = asset('storage').'/details/'.$nama.$id.'/suratgantinama_'.$id.".".$file->getClientOriginalExtension();
+            $path = $file->storeAs('details/'.$nama.$id,'suratgantinama_'.$id.".".$file->getClientOriginalExtension(), 'public_uploads');
+            $suratgantinama = '/uploads'.'/details/'.$nama.$id.'/suratgantinama_'.$id.".".$file->getClientOriginalExtension();
         };
         if($suratgantinama == ""){
             $suratgantinama = null;
@@ -183,8 +185,8 @@ class DataController extends Controller
         $kaj = strip_tags($request->input('kaj_text'));
         if($request->hasFile('kaj')){ 
             $file = $request->file('kaj');
-            $path = $file->storeAs('public/details/'.$nama.$id,'kaj_'.$id.".".$file->getClientOriginalExtension());
-            $kaj = asset('storage').'/details/'.$nama.$id.'/kaj_'.$id.".".$file->getClientOriginalExtension();
+            $path = $file->storeAs('details/'.$nama.$id,'kaj_'.$id.".".$file->getClientOriginalExtension(), 'public_uploads');
+            $kaj = '/uploads'.'/details/'.$nama.$id.'/kaj_'.$id.".".$file->getClientOriginalExtension();
         };
         if($kaj == ""){
             $kaj = null;
@@ -192,8 +194,8 @@ class DataController extends Controller
         $kom100 = strip_tags($request->input('kom100_text'));
         if($request->hasFile('kom100')){ 
             $file = $request->file('kom100');
-            $path = $file->storeAs('public/details/'.$nama.$id,'kom100_'.$id.".".$file->getClientOriginalExtension());
-            $kom100 = asset('storage').'/details/'.$nama.$id.'/kom100_'.$id.".".$file->getClientOriginalExtension();
+            $path = $file->storeAs('details/'.$nama.$id,'kom100_'.$id.".".$file->getClientOriginalExtension(), 'public_uploads');
+            $kom100 = '/uploads'.'/details/'.$nama.$id.'/kom100_'.$id.".".$file->getClientOriginalExtension();
         };
         if($kom100 == ""){
             $kom100 = null;
@@ -204,8 +206,8 @@ class DataController extends Controller
         $ktpayah = strip_tags($request->input('ktpayah_text'));
         if($request->hasFile('ktpayah')){ 
             $file = $request->file('ktpayah');
-            $path = $file->storeAs('public/details/'.$nama.$id,'ktpayah'.'_'.$id.".".$file->getClientOriginalExtension());
-            $ktpayah = asset('storage').'/details/'.$nama.$id.'/'.'ktpayah'.'_'.$id.".".$file->getClientOriginalExtension();
+            $path = $file->storeAs('details/'.$nama.$id,'ktpayah'.'_'.$id.".".$file->getClientOriginalExtension(), 'public_uploads');
+            $ktpayah = '/uploads'.'/details/'.$nama.$id.'/'.'ktpayah'.'_'.$id.".".$file->getClientOriginalExtension();
         };
         if($ktpayah == ""){
             $ktpayah = null;
@@ -213,8 +215,8 @@ class DataController extends Controller
         $ktpibu = strip_tags($request->input('ktpibu_text'));
         if($request->hasFile('ktpibu')){ 
             $file = $request->file('ktpibu');
-            $path = $file->storeAs('public/details/'.$nama.$id,'ktpibu'.'_'.$id.".".$file->getClientOriginalExtension());
-            $ktpibu = asset('storage').'/details/'.$nama.$id.'/'.'ktpibu'.'_'.$id.".".$file->getClientOriginalExtension();
+            $path = $file->storeAs('details/'.$nama.$id,'ktpibu'.'_'.$id.".".$file->getClientOriginalExtension(), 'public_uploads');
+            $ktpibu = '/uploads'.'/details/'.$nama.$id.'/'.'ktpibu'.'_'.$id.".".$file->getClientOriginalExtension();
         };
         if($ktpibu == ""){
             $ktpibu = null;
@@ -222,8 +224,8 @@ class DataController extends Controller
         $suratgantinamaayah = strip_tags($request->input('suratgantinamaayah_text'));
         if($request->hasFile('suratgantinamaayah')){ 
             $file = $request->file('suratgantinamaayah');
-            $path = $file->storeAs('public/details/'.$nama.$id,'suratgantinamaayah'.'_'.$id.".".$file->getClientOriginalExtension());
-            $suratgantinamaayah = asset('storage').'/details/'.$nama.$id.'/'.'suratgantinamaayah'.'_'.$id.".".$file->getClientOriginalExtension();
+            $path = $file->storeAs('details/'.$nama.$id,'suratgantinamaayah'.'_'.$id.".".$file->getClientOriginalExtension(), 'public_uploads');
+            $suratgantinamaayah = '/uploads'.'/details/'.$nama.$id.'/'.'suratgantinamaayah'.'_'.$id.".".$file->getClientOriginalExtension();
         };
         if($suratgantinamaayah == ""){
             $suratgantinamaayah = null;
@@ -231,8 +233,8 @@ class DataController extends Controller
         $suratgantinamaibu = strip_tags($request->input('suratgantinamaibu_text'));
         if($request->hasFile('suratgantinamaibu')){ 
             $file = $request->file('suratgantinamaibu');
-            $path = $file->storeAs('public/details/'.$nama.$id,'suratgantinamaibu'.'_'.$id.".".$file->getClientOriginalExtension());
-            $suratgantinamaibu = asset('storage').'/details/'.$nama.$id.'/'.'suratgantinamaibu'.'_'.$id.".".$file->getClientOriginalExtension();
+            $path = $file->storeAs('details/'.$nama.$id,'suratgantinamaibu'.'_'.$id.".".$file->getClientOriginalExtension(), 'public_uploads');
+            $suratgantinamaibu = '/uploads'.'/details/'.$nama.$id.'/'.'suratgantinamaibu'.'_'.$id.".".$file->getClientOriginalExtension();
         };
         if($suratgantinamaibu == ""){
             $suratgantinamaibu = null;
@@ -240,8 +242,8 @@ class DataController extends Controller
         $aktekematianayah = strip_tags($request->input('aktekematianayah_text'));
         if($request->hasFile('aktekematianayah')){ 
             $file = $request->file('aktekematianayah');
-            $path = $file->storeAs('public/details/'.$nama.$id,'aktekematianayah'.'_'.$id.".".$file->getClientOriginalExtension());
-            $aktekematianayah = asset('storage').'/details/'.$nama.$id.'/'.'aktekematianayah'.'_'.$id.".".$file->getClientOriginalExtension();
+            $path = $file->storeAs('details/'.$nama.$id,'aktekematianayah'.'_'.$id.".".$file->getClientOriginalExtension(), 'public_uploads');
+            $aktekematianayah = '/uploads'.'/details/'.$nama.$id.'/'.'aktekematianayah'.'_'.$id.".".$file->getClientOriginalExtension();
         };
         if($aktekematianayah == ""){
             $aktekematianayah = null;
@@ -249,8 +251,8 @@ class DataController extends Controller
         $aktekematianibu = strip_tags($request->input('aktekematianibu_text'));
         if($request->hasFile('aktekematianibu')){ 
             $file = $request->file('aktekematianibu');
-            $path = $file->storeAs('public/details/'.$nama.$id,'aktekematianibu'.'_'.$id.".".$file->getClientOriginalExtension());
-            $aktekematianibu = asset('storage').'/details/'.$nama.$id.'/'.'aktekematianibu'.'_'.$id.".".$file->getClientOriginalExtension();
+            $path = $file->storeAs('details/'.$nama.$id,'aktekematianibu'.'_'.$id.".".$file->getClientOriginalExtension(), 'public_uploads');
+            $aktekematianibu = '/uploads'.'/details/'.$nama.$id.'/'.'aktekematianibu'.'_'.$id.".".$file->getClientOriginalExtension();
         };
         if($aktekematianibu == ""){
             $aktekematianibu = null;
@@ -258,8 +260,8 @@ class DataController extends Controller
         $suratpersetujuanortu = strip_tags($request->input('suratpersetujuanortu_text'));
         if($request->hasFile('suratpersetujuanortu')){ 
             $file = $request->file('suratpersetujuanortu');
-            $path = $file->storeAs('public/details/'.$nama.$id,'suratpersetujuanortu'.'_'.$id.".".$file->getClientOriginalExtension());
-            $suratpersetujuanortu = asset('storage').'/details/'.$nama.$id.'/'.'suratpersetujuanortu'.'_'.$id.".".$file->getClientOriginalExtension();
+            $path = $file->storeAs('details/'.$nama.$id,'suratpersetujuanortu'.'_'.$id.".".$file->getClientOriginalExtension(), 'public_uploads');
+            $suratpersetujuanortu = '/uploads'.'/details/'.$nama.$id.'/'.'suratpersetujuanortu'.'_'.$id.".".$file->getClientOriginalExtension();
         };
         if($suratpersetujuanortu == ""){
             $suratpersetujuanortu = null;
@@ -267,8 +269,8 @@ class DataController extends Controller
         $suratketeranganbelumnikah = strip_tags($request->input('suratketeranganbelumnikah_text'));
         if($request->hasFile('suratketeranganbelumnikah')){ 
             $file = $request->file('suratketeranganbelumnikah');
-            $path = $file->storeAs('public/details/'.$nama.$id,'suratketeranganbelumnikah'.'_'.$id.".".$file->getClientOriginalExtension());
-            $suratketeranganbelumnikah = asset('storage').'/details/'.$nama.$id.'/'.'suratketeranganbelumnikah'.'_'.$id.".".$file->getClientOriginalExtension();
+            $path = $file->storeAs('details/'.$nama.$id,'suratketeranganbelumnikah'.'_'.$id.".".$file->getClientOriginalExtension(), 'public_uploads');
+            $suratketeranganbelumnikah = '/uploads'.'/details/'.$nama.$id.'/'.'suratketeranganbelumnikah'.'_'.$id.".".$file->getClientOriginalExtension();
         };
         if($suratketeranganbelumnikah == ""){
             $suratketeranganbelumnikah = null;
