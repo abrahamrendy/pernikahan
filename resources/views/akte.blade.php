@@ -7,14 +7,14 @@
     <!-- <link href="{{ public_path('css/bootstrap.min.css'); }} " rel="stylesheet"> -->
     <!-- <link href="{{ public_path('css/akte.css'); }} " rel="stylesheet"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <div class="row">
                 <div class="col-md-12">
-                    <img>IMAGE
+                    <img src="{{ URL::asset('css/gbi.png'); }}" width="25%">
                     <div class="float-end">No</div>
                 </div>
                 <div class="col-md-12 font-roboto-serif row">
@@ -24,8 +24,6 @@
                         <h4 class="font-semibold" style="text-decoration: underline; margin-bottom: 0px;">AKTA NIKAH</h4>
                         <h6 class="font-semibold">No. 3165/B/SP/X/21</h6>
                     </div>
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
                     <div class="text-center">
                         <div class="col-md-4 font-medium" style="border-top: 1px solid; border-bottom: 1px solid;">
                             <p class="font-size-small" style="margin: 10px 0px;">
@@ -35,12 +33,11 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-md-4"></div>
                 </div>
             </div>
         </div>
 
-        <div class="container margin-top-3 line-height-2" style="text-align: left">
+        <div class="container margin-top-1 line-height-2" style="text-align: left">
             <div class="row">
                 <div class="col-md-12">
                     <div>
@@ -49,7 +46,7 @@
                 </div>
 
                 <div class="col-md-12">
-                    <h4 class="text-center margin-vertical-2 font-bold">ASD ASD ASD</h4>
+                    <h4 class="text-center margin-vertical-1 font-bold">ASD ASD ASD</h4>
                     <div class="row">
                         <div class="col-md-6">
                             dilahirkan di ...
@@ -64,11 +61,11 @@
                             dan ...
                         </div>
                     </div>
-                    <div class="text-center margin-top-2">dengan</div>
+                    <div class="text-center margin-top-1">dengan</div>
                 </div>
 
                 <div class="col-md-12">
-                    <h4 class="text-center margin-vertical-2 font-bold">ASD ASD ASD</h4>
+                    <h4 class="text-center margin-vertical-1 font-bold">ASD ASD ASD</h4>
                     <div class="row">
                         <div class="col-md-6">
                             dilahirkan di ...
@@ -92,18 +89,23 @@
                 </div>
             </div>
         </div>
+        <br>
 
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    IMG
+                <div class="col-md-6" style="text-align:right">
+                    <img src="{{ URL::asset('css/dummy.png'); }}" height="126">
                 </div>
                 <div class="col-md-6">
-                    <p>Bandung, ....</p>
-                    <p>GEREJA BETHEL INDONESIA</p>
-                    <p>Jl. Aruna No.19-Bandung 40174</p>
-                    <p>Pdt. DR. Ir. NIKO NJOTORAHARDJO</p>
-                    <p>GEMBALA SIDANG</p>
+                    <span class="font-size-small">Bandung, ....</span>
+                    <br>
+                    <span>GEREJA BETHEL INDONESIA</span>
+                    <br>
+                    <span class="font-size-xsmall">Jl. Aruna No.19-Bandung 40174</span>
+                    <br><br><br><br>
+                    <span class="font-medium" style="text-decoration: underline;">Pdt. DR. Ir. NIKO NJOTORAHARDJO</span>
+                    <br>
+                    <div class="font-size-small font-medium" style="letter-spacing: 2px; margin-top: 7px;">GEMBALA SIDANG</div>
                 </div>
             </div>
         </div>
@@ -111,9 +113,6 @@
 
 <style>
     /*@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600;700&display=swap');*/
-
-    
-
 
     .container {
         text-align: center;
@@ -132,25 +131,26 @@
 
     .col-md-4 {
         flex: 0 0 auto;
-        width: 33.33333333%;
+        width: 50%;
         display: inline-block;
     }
 
     .col-md-6 {
         flex: 0 0 auto;
-        width: 50%;
+        width: 49%;
+        display: inline-block;
     }
 
     .h1, h1 {
-        font-size: 2.5rem;
+        font-size: 1.7rem;
     }
 
     .h6, h6 {
-        font-size: 1rem;
+        font-size: 0.6rem;
     }
 
     .h4, h4 {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 
     .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -160,6 +160,10 @@
         line-height: 1.2;
     }
 
+    .float-end {
+        float: right;
+    }
+
 
 
     body {
@@ -167,6 +171,12 @@
         font-family: 'Roboto Serif', sans-serif;
         /*width: 210mm;*/
         /*height: 297mm;*/
+        font-size: 8pt;
+        background-image: url({{ URL::asset('css/frame.png'); }});
+        background-position: top;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        padding: 13%;
     }
 
     .font-roboto-serif {
@@ -182,7 +192,11 @@
     }
 
     .font-size-small {
-        font-size: 9pt;
+        font-size: 7pt;
+    }
+
+    .font-size-xsmall {
+        font-size: 5pt;
     }
 
     .text-center {
@@ -197,9 +211,18 @@
         margin-top: 2em !important;
     }
 
+    .margin-top-1 {
+        margin-top: 1em !important;
+    }
+
     .margin-vertical-2 {
         margin-top: 1.5em !important;
         margin-bottom: 1.5em !important;
+    }
+
+    .margin-vertical-1 {
+        margin-top: 0.7em !important;
+        margin-bottom: 0.7em !important;
     }
 
     .line-height-2 {
