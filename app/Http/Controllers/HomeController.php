@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -16,6 +17,13 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+    // public function setRoles() {
+    //     if(!\Session::has('roles')) {
+    //         $roles = Auth::user()->roles;
+    //         \Session::put('roles', $roles);
+    //     }
+    // }
+
     /**
      * Show the application dashboard.
      *
@@ -23,6 +31,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // $this->setRoles();
         return view('home');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return back();
     }
 }
