@@ -26,8 +26,12 @@ class DataController extends Controller
     public function index($type)
     {
         $data = DB::select('SELECT t.nama as nama_pria, calon_mempelai.nama as nama_wanita, t.*
-                            FROM (SELECT pemberkatan.*, calon_mempelai.nama as nama FROM pemberkatan INNER JOIN calon_mempelai ON pemberkatan.mempelai_pria = calon_mempelai.id) as t
-                            INNER JOIN calon_mempelai ON t.mempelai_wanita = calon_mempelai.id WHERE t.status_pernikahan = ?',[strtoupper($type)]);
+                            FROM (SELECT pemberkatan.*, calon_mempelai.nama as nama, pendeta.nama_pendeta as nama_pendeta FROM pemberkatan INNER JOIN calon_mempelai ON pemberkatan.mempelai_pria = calon_mempelai.id LEFT OUTER JOIN pendeta ON pemberkatan.pendeta_id = pendeta.id ) as t
+                            INNER JOIN calon_mempelai ON t.mempelai_wanita = calon_mempelai.id
+                            WHERE t.status_pernikahan = ?',[strtoupper($type)]);
+
+        $pendeta = DB::table('pendeta')->get();
+
         if (strtolower($type) == 'dd') {
             $title = "Didoakan";  
         } else if (strtolower($type) == "sp") {
@@ -40,7 +44,7 @@ class DataController extends Controller
         }
 
         
-        return view('data', ['title' => $title, 'data' => $data]);
+        return view('data', ['title' => $title, 'data' => $data, 'pendeta' => $pendeta]);
     }
 
     public function getMempelai($id) {
@@ -58,7 +62,7 @@ class DataController extends Controller
     public function submit(Request $request) {
         $id = strip_tags($request->input('id'));
 
-        $affected = DB::table('pemberkatan')->where('id', $id)->update(['status' => 1]);
+        $affected = DB::table('pemberkatan')->leftJoin('pendeta', 'pemberkatan.pendeta_id', '=', 'pendeta.id')->where('pemberkatan.id', $id)->update(['status' => 1]);
 
         return response()->json([
             'success' => '1',
@@ -68,7 +72,7 @@ class DataController extends Controller
     public function verify(Request $request) {
         $id = strip_tags($request->input('id'));
 
-        $affected = DB::table('pemberkatan')->where('id', $id)->update(['status' => 2]);
+        $affected = DB::table('pemberkatan')->where('id', $id)->update(['status' => 2, 'verified_at' => date("Y-m-d H:i:s")]);
 
         return response()->json([
             'success' => '1',

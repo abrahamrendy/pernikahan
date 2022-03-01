@@ -245,19 +245,30 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                      <label for="edit_tempat">Tempat</label>
-                      <input type="text" class="form-control" id="edit_tempat" placeholder="Tempat" name="tempat">
+                        <label for="edit_tempat">Tempat</label>
+                        <input type="text" class="form-control" id="edit_tempat" placeholder="Tempat" name="tempat">
                     </div>
                     <div class="form-group col-md-6">
-                      <label for="edit_tanggal">Tanggal</label>
-                      <input type="text" class="form-control datepicker" id="edit_tanggal" placeholder="Tanggal" name="tanggal">
+                        <label for="edit_tanggal">Tanggal</label>
+                        <input type="text" class="form-control datepicker" id="edit_tanggal" placeholder="Tanggal" name="tanggal">
                     </div>
                     <div class="form-group col-md-12">
-                      <label for="edit_pasfoto">Pas Foto</label>
-                      <div><a href="#" id="edit_pasfotolink" target="_blank">Link</a></div>
-                      <input type="file" class="form-control-file" id="edit_pasfoto" name="pas_foto_file">
-                      <br>
-                      <textarea class="form-control" id="edit_pasfoto_textarea" rows="3" name="pas_foto_text"></textarea>
+                        <label for="edit_pasfoto">Pas Foto</label>
+                        <div><a href="#" id="edit_pasfotolink" target="_blank">Link</a></div>
+                        <input type="file" class="form-control-file" id="edit_pasfoto" name="pas_foto_file">
+                        <br>
+                        <textarea class="form-control" id="edit_pasfoto_textarea" rows="3" name="pas_foto_text"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="pendeta">Pendeta</label>
+                        <select class="form-control" name="pendeta" id="pendeta">
+                          <option disabled selected></option>
+                          <?php
+                            foreach ($pendeta as $item) {
+                                echo "<option value=".$item->id.">".$item->nama_pendeta."</option>";
+                            }
+                          ?>
+                        </select>
                     </div>
                 </div>
               </div>
@@ -291,6 +302,7 @@
                         <th>Tanggal</th>
                         <th>Tempat</th>
                         <th>Pas Foto</th>
+                        <th>Pendeta</th>
                         <th>Tanggal Submit</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -311,6 +323,7 @@
                                 } else {
                                   echo "<td></td>";
                                 }
+                                echo "<td>".$item->nama_pendeta."</td>";
                                 echo "<td>".$item->created_at."</td>";
                                 if ($item->status == 0) {
                                     echo "<td><span class='badge badge-secondary'>Pending</span></td>";
@@ -325,6 +338,7 @@
                                 } else if ($item->status == 2) {
                                     echo "<td><span class='badge badge-success'>Verified</span></td>";
                                     echo '<td>
+                                            <button type="button" class="certificate-btn btn btn-warning btn-sm btn-block" data-id ="'.$item->id.'"><a href="'.route('certificate',$item->id).'">Certificate</a></button>
                                             <button type="button" class="decline-btn btn btn-danger btn-sm btn-block" data-id ="'.$item->id.'">Decline</button>';
                                 } else {
                                     echo "<td><span class='badge badge-danger'>Declined</span></td>";
@@ -505,6 +519,8 @@
                                 $('#edit_tanggal').val(date);
                                 $('#edit_pasfotolink').attr("href", item.pas_foto);
                                 $('#edit_pasfoto_textarea').val(item.pas_foto);
+
+                                $('#pendeta').val(item.pendeta_id);
                             });
 
                         },
@@ -574,6 +590,24 @@
                         }
                     });
             });
+
+            // $(document).on('click', '.certificate-btn', function(){
+            //     var id = $(this).data('id');
+            //     $.ajax({
+            //             url: base_url + '/certificate',
+            //             type:'POST',
+            //             dataType : "json",
+            //             data : {_token:"{{ csrf_token() }}",id:id},
+            //             success:function(data)
+            //             {
+            //                 location.reload();
+            //             },
+            //             error:function(xhr,status,error)
+            //             {
+            //                 alert("Please try again later.");
+            //             }
+            //         });
+            // });
                 
         });
     </script>

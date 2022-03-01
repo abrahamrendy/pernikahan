@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hi</title>
+    <title>{{$title}}</title>
     <!-- <link href="{{ URL::asset('css/bootstrap.min.css'); }} " rel="stylesheet"> -->
     <!-- <link href="{{ URL::asset('css/akte.css'); }} " rel="stylesheet"> -->
     <!-- <link href="{{ public_path('css/bootstrap.min.css'); }} " rel="stylesheet"> -->
@@ -41,50 +41,50 @@
             <div class="row">
                 <div class="col-md-12">
                     <div>
-                        PADA HARI .... TANGGAL .... DIHADAPAN SIDANG JEMAAT TUHAN TELAH .... PERNIKAHAN YANG KUDUS DARI
+                        PADA HARI {{$hari}} TANGGAL {{$tanggal}} DIHADAPAN SIDANG JEMAAT TUHAN TELAH {{$type}} PERNIKAHAN YANG KUDUS DARI
                     </div>
                 </div>
 
                 <div class="col-md-12">
-                    <h4 class="text-center margin-vertical-1 font-bold">ASD ASD ASD</h4>
+                    <h4 class="text-center margin-vertical-1 font-bold">{{$nama_pria}}</h4>
                     <div class="row">
                         <div class="col-md-6">
-                            dilahirkan di ...
+                            dilahirkan di {{$tempat_lahir_pria}}
                         </div>
                         <div class="col-md-6">
-                            tanggal ...
+                            tanggal {{$tanggal_lahir_pria}}
                         </div>
                         <div class="col-md-6">
-                            anak laki-laki dari ...
+                            anak laki-laki dari {{$nama_ayah_pria}}
                         </div>
                         <div class="col-md-6">
-                            dan ...
+                            dan {{$nama_ibu_pria}}
                         </div>
                     </div>
                     <div class="text-center margin-top-1">dengan</div>
                 </div>
 
                 <div class="col-md-12">
-                    <h4 class="text-center margin-vertical-1 font-bold">ASD ASD ASD</h4>
+                    <h4 class="text-center margin-vertical-1 font-bold">{{$nama_wanita}}</h4>
                     <div class="row">
                         <div class="col-md-6">
-                            dilahirkan di ...
+                            dilahirkan di {{$tempat_lahir_wanita}}
                         </div>
                         <div class="col-md-6">
-                            tanggal ...
+                            tanggal {{$tanggal_lahir_wanita}}
                         </div>
                         <div class="col-md-6">
-                            anak perempuan dari ...
+                            anak perempuan dari {{$nama_ayah_wanita}}
                         </div>
                         <div class="col-md-6">
-                            dan ...
+                            dan {{$nama_ibu_wanita}}
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-12 margin-top-2">
                     <p>
-                        Upacara Pernikahan yang kudus ini telah dilakukan dalam Nama TUHAN YESUS KRISTUS oleh: ...
+                        Upacara Pernikahan yang kudus ini telah dilakukan dalam Nama TUHAN YESUS KRISTUS oleh: {{$nama_pendeta}}
                     </p>
                 </div>
             </div>
@@ -94,10 +94,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6" style="text-align:right">
-                    <img src="{{ URL::asset('css/dummy.png'); }}" height="126">
+                    <img src="{{ URL::asset($pas_foto); }}" height="126">
                 </div>
                 <div class="col-md-6">
-                    <span class="font-size-small">Bandung, ....</span>
+                    <span class="font-size-small">Bandung, {{$tanggal_pengesahan}}</span>
                     <br>
                     <span>GEREJA BETHEL INDONESIA</span>
                     <br>
