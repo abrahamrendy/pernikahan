@@ -93,8 +93,9 @@ class DataController extends Controller
         $id = strip_tags($request->input('id'));
         $tempat = strip_tags($request->input('tempat'));
         $tanggal = strip_tags($request->input('tanggal'));
-        $tanggal = date("Y-m-d H:i:s", strtotime($tanggal));
+        $pendeta_id = strip_tags($request->input('pendeta'));
         $pas_foto = strip_tags($request->input('pas_foto_text'));
+        $tanggal = date("Y-m-d H:i:s", strtotime($tanggal));
         if($request->hasFile('pas_foto_file')){ 
             $pas_foto_file = $request->file('pas_foto_file');
             // $path = $pas_foto_file->storeAs('public/pemberkatan','pas_foto_'.$id.".".$pas_foto_file->getClientOriginalExtension());
@@ -111,6 +112,7 @@ class DataController extends Controller
                                                                             'tempat' => $tempat,
                                                                             'tanggal' => $tanggal,
                                                                             'pas_foto' => $pas_foto,
+                                                                            'pendeta_id' => $pendeta_id,
                                                                             'updated_at' => date("Y-m-d H:i:s")
                                                                         ]);
         } catch (\Illuminate\Database\QueryException $e) {
