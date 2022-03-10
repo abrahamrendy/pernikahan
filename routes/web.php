@@ -30,6 +30,7 @@ Route::get('/get_pemberkatan/{id}', [App\Http\Controllers\DataController::class,
 
 Route::post('/submit', [App\Http\Controllers\DataController::class, 'submit']);
 Route::post('/verify', [App\Http\Controllers\DataController::class, 'verify']);
+Route::post('/authorize', [App\Http\Controllers\DataController::class, 'authorized']);
 Route::post('/decline', [App\Http\Controllers\DataController::class, 'decline']);
 Route::get('/certificate/{id}', [PDFController::class, 'generateCertificate'])->name('certificate');
 

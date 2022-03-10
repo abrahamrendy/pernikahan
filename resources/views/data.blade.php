@@ -326,25 +326,50 @@
                                 echo "<td>".$item->nama_pendeta."</td>";
                                 echo "<td>".$item->created_at."</td>";
                                 if ($item->status == 0) {
+                                    // PENDING STATUS
                                     echo "<td><span class='badge badge-secondary'>Pending</span></td>";
-                                    echo '<td>
-                                            <button type="button" class="submit-btn btn btn-primary btn-sm btn-block" data-id ="'.$item->id.'">Submit</button>
-                                            <button type="button" class="btn btn-success btn-sm btn-block" data-id ="'.$item->id.'">Verify</button>';
+                                    echo '<td>';
+                                    if (Auth::user()->roles == 1 || Auth::user()->roles == 2) {
+                                        echo '<button type="button" class="submit-btn btn btn-primary btn-sm btn-block" data-id ="'.$item->id.'">Submit</button>';
+                                    } else if (Auth::user()->roles == 1) {
+                                        echo '<button type="button" class="btn btn-success btn-sm btn-block" data-id ="'.$item->id.'">Verify</button>';
+                                    }
+                                    
                                 } else if ($item->status == 1) {
+                                    // SUBMITTED STATUS
                                     echo "<td><span class='badge badge-primary'>Submitted</span></td>";
-                                    echo '<td>
-                                            <button type="button" class="verify-btn btn btn-success btn-sm btn-block" data-id ="'.$item->id.'">Verify</button>
-                                            <button type="button" class="decline-btn btn btn-danger btn-sm btn-block" data-id ="'.$item->id.'">Decline</button>';
+                                    echo '<td>';
+                                    if (Auth::user()->roles == 1 || Auth::user()->roles == 3) {
+                                        echo '<button type="button" class="verify-btn btn btn-success btn-sm btn-block" data-id ="'.$item->id.'">Verify</button>';
+                                    } else if (Auth::user()->roles == 1) {
+                                        echo '<button type="button" class="decline-btn btn btn-danger btn-sm btn-block" data-id ="'.$item->id.'">Decline</button>';
+                                    }
                                 } else if ($item->status == 2) {
+                                    // VERIFIED STATUS
                                     echo "<td><span class='badge badge-success'>Verified</span></td>";
-                                    echo '<td>
-                                            <button type="button" class="certificate-btn btn btn-warning btn-sm btn-block" data-id ="'.$item->id.'"><a href="'.route('certificate',$item->id).'">Certificate</a></button>
-                                            <button type="button" class="decline-btn btn btn-danger btn-sm btn-block" data-id ="'.$item->id.'">Decline</button>';
+                                    echo '<td>';
+                                    if (Auth::user()->roles == 1 || Auth::user()->roles == 5) {
+                                        echo '<button type="button" class="authorize-btn btn btn-warning btn-sm btn-block" data-id ="'.$item->id.'">Authorize</button>';
+                                    } else if (Auth::user()->roles == 1) {
+                                        echo '<button type="button" class="decline-btn btn btn-danger btn-sm btn-block" data-id ="'.$item->id.'">Decline</button>';
+                                    }
+                                } else if ($item->status == 3) {
+                                    // AUTHORIZED STATUS
+                                    echo "<td><span class='badge badge-warning'>Authorized</span></td>";
+                                    echo '<td>';
+                                    if (Auth::user()->roles == 1 || Auth::user()->roles == 2 || Auth::user()->roles == 3 || Auth::user()->roles == 5) {
+                                        echo '<button type="button" class="certificate-btn btn btn-warning btn-sm btn-block" data-id ="'.$item->id.'"><a href="'.route('certificate',$item->id).'">Certificate</a></button>';
+                                    } else if (Auth::user()->roles == 1) {
+                                        echo '<button type="button" class="decline-btn btn btn-danger btn-sm btn-block" data-id ="'.$item->id.'">Decline</button>';
+                                    }
                                 } else {
+                                    // DECLINED STATUS
                                     echo "<td><span class='badge badge-danger'>Declined</span></td>";
-                                    echo '<td>
-                                            <button type="button" class="submit-btn btn btn-primary btn-sm btn-block" data-id ="'.$item->id.'">Submit</button>
-                                            <button type="button" class="verify-btn btn btn-success btn-sm btn-block" data-id ="'.$item->id.'">Verify</button>';
+                                    echo '<td>';
+                                    if (Auth::user()->roles == 1) {
+                                        echo '<button type="button" class="submit-btn btn btn-primary btn-sm btn-block" data-id ="'.$item->id.'">Submit</button>
+                                                <button type="button" class="verify-btn btn btn-success btn-sm btn-block" data-id ="'.$item->id.'">Verify</button>';
+                                    }
                                 }
                                 echo '<button type="button" class="edit-btn btn btn-secondary btn-sm btn-block" data-toggle="modal" data-target="#edit-modal" data-id ="'.$item->id.'">Edit</button>
                                         </td>';
@@ -546,6 +571,7 @@
                         data : {_token:"{{ csrf_token() }}",id:id},
                         success:function(data)
                         {
+                            alert('Your data has been submitted!');
                             location.reload();
                         },
                         error:function(xhr,status,error)
@@ -564,6 +590,7 @@
                         data : {_token:"{{ csrf_token() }}",id:id},
                         success:function(data)
                         {
+                            alert('Your data has been verified!');
                             location.reload();
                         },
                         error:function(xhr,status,error)
@@ -582,6 +609,7 @@
                         data : {_token:"{{ csrf_token() }}",id:id},
                         success:function(data)
                         {
+                            alert('Your data has been declined!');
                             location.reload();
                         },
                         error:function(xhr,status,error)
@@ -591,23 +619,24 @@
                     });
             });
 
-            // $(document).on('click', '.certificate-btn', function(){
-            //     var id = $(this).data('id');
-            //     $.ajax({
-            //             url: base_url + '/certificate',
-            //             type:'POST',
-            //             dataType : "json",
-            //             data : {_token:"{{ csrf_token() }}",id:id},
-            //             success:function(data)
-            //             {
-            //                 location.reload();
-            //             },
-            //             error:function(xhr,status,error)
-            //             {
-            //                 alert("Please try again later.");
-            //             }
-            //         });
-            // });
+            $(document).on('click', '.authorize-btn', function(){
+                var id = $(this).data('id');
+                $.ajax({
+                        url: base_url + '/authorize',
+                        type:'POST',
+                        dataType : "json",
+                        data : {_token:"{{ csrf_token() }}",id:id},
+                        success:function(data)
+                        {
+                            alert('Your data has been authorized!');
+                            location.reload();
+                        },
+                        error:function(xhr,status,error)
+                        {
+                            alert("Please try again later.");
+                        }
+                    });
+            });
                 
         });
     </script>
