@@ -42,6 +42,21 @@ class PDFController extends Controller
         return view('akte');
     }
 
+    public function numberToRomanRepresentation($number) {
+        $map = array('M' => 1000, 'CM' => 900, 'D' => 500, 'CD' => 400, 'C' => 100, 'XC' => 90, 'L' => 50, 'XL' => 40, 'X' => 10, 'IX' => 9, 'V' => 5, 'IV' => 4, 'I' => 1);
+        $returnValue = '';
+        while ($number > 0) {
+            foreach ($map as $roman => $int) {
+                if($number >= $int) {
+                    $number -= $int;
+                    $returnValue .= $roman;
+                    break;
+                }
+            }
+        }
+        return $returnValue;
+    }
+
     public function generateCertificate($id)
     {
         $id = strip_tags($id);
@@ -64,13 +79,16 @@ class PDFController extends Controller
 
             $tanggal_lahir_pria = new Carbon($db[0]->tanggal_lahir_pria);
             $tanggal_lahir_wanita = new Carbon($db[0]->tanggal_lahir_wanita);
-            $tanggal_pengesahan = new Carbon($db[0]->verified_at);
+            // $tanggal_pengesahan = new Carbon($db[0]->verified_at);
+            $month = $this->numberToRomanRepresentation(date('n', strtotime($date)));
+            // $year = date("y", strtotime($date));
 
             $data = [
                 'title' => 'Akte Nikah '.$db[0]->nama_pria.' '.$db[0]->nama_wanita,
                 'hari' => $date->locale('id')->isoFormat('dddd'),
                 'tanggal' => $date->locale('id')->isoFormat('LL'),
                 'type' => $type,
+                'status_pernikahan' => strtoupper($db[0]->status_pernikahan),
                 'nama_pria' => $db[0]->nama_pria,
                 'tempat_lahir_pria' => $db[0]->tempat_lahir_pria,
                 'tanggal_lahir_pria' => $tanggal_lahir_pria->locale('id')->isoFormat('LL'),
@@ -83,7 +101,9 @@ class PDFController extends Controller
                 'nama_ibu_wanita' => $db[0]->nama_ibu_wanita,
                 'pas_foto' =>$db[0]->pas_foto,
                 'nama_pendeta' =>$db[0]->nama_pendeta,
-                'tanggal_pengesahan' => $tanggal_pengesahan->locale('id')->isoFormat('LL')
+                'tanggal_pengesahan' => $date->locale('id')->isoFormat('LL'),
+                'no_sertifikat' => $db[0]->no_sertifikat,
+                'month' => $month
 
             ];
               

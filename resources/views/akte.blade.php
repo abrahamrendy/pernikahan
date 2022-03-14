@@ -15,14 +15,14 @@
         <div class="row">
                 <div class="col-md-12">
                     <img src="{{ URL::asset('css/gbi.png'); }}" width="25%">
-                    <div class="float-end">No</div>
+                    <!-- <div class="float-end">No</div> -->
                 </div>
                 <div class="col-md-12 font-roboto-serif row">
                     <h1 class="font-bold">GEREJA BETHEL INDONESIA</h1>
                     <h6>Badan Hukum Gereja: SK Dirjen Bimas Kristen Protestan Departemen Agama R.I No. 41 Tahun 1972 dan SK Dirjen Bimas (Kristen) Protestan Departemen Agama R.I. No. 211 Tahun 1989 Tgl. 25 Nopember 1989</h6>
                     <div class="text-center">
                         <h4 class="font-semibold" style="text-decoration: underline; margin-bottom: 0px;">AKTA NIKAH</h4>
-                        <h6 class="font-semibold">No. 3165/B/SP/X/21</h6>
+                        <h6 class="font-semibold">No. {{$no_sertifikat}}/B/{{$status_pernikahan}}/{{$month}}/{{date("y", strtotime($tanggal))}}</h6>
                     </div>
                     <div class="text-center">
                         <div class="col-md-4 font-medium" style="border-top: 1px solid; border-bottom: 1px solid;">
@@ -40,51 +40,62 @@
         <div class="container margin-top-1 line-height-2" style="text-align: left">
             <div class="row">
                 <div class="col-md-12">
-                    <div>
-                        PADA HARI {{$hari}} TANGGAL {{$tanggal}} DIHADAPAN SIDANG JEMAAT TUHAN TELAH {{$type}} PERNIKAHAN YANG KUDUS DARI
+                    <div class="row">
+                        <div class="col-md-6">
+                            PADA HARI     <b>{{$hari}}</b>
+                        </div>
+                        <div class="col-md-6">
+                            TANGGAL     <b>{{$tanggal}}</b>
+                         </div> 
+                         <div class="col-md-12">
+                             DIHADAPAN SIDANG JEMAAT TUHAN TELAH     <b>{{strtoupper($type)}}</b> 
+                         </div>
+                         <div class="col-md-12">
+                             PERNIKAHAN YANG KUDUS DARI
+                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-12">
-                    <h4 class="text-center margin-vertical-1 font-bold">{{$nama_pria}}</h4>
+                    <h4 class="text-center margin-vertical-1 font-bold"><b>{{$nama_pria}}</b></h4>
                     <div class="row">
                         <div class="col-md-6">
-                            dilahirkan di {{$tempat_lahir_pria}}
+                            dilahirkan di <b>{{$tempat_lahir_pria}}</b>
                         </div>
                         <div class="col-md-6">
-                            tanggal {{$tanggal_lahir_pria}}
+                            tanggal <b>{{$tanggal_lahir_pria}}</b>
                         </div>
                         <div class="col-md-6">
-                            anak laki-laki dari {{$nama_ayah_pria}}
+                            anak laki-laki dari <b>{{$nama_ayah_pria}}</b>
                         </div>
                         <div class="col-md-6">
-                            dan {{$nama_ibu_pria}}
+                            dan <b>{{$nama_ibu_pria}}</b>
                         </div>
                     </div>
                     <div class="text-center margin-top-1">dengan</div>
                 </div>
 
                 <div class="col-md-12">
-                    <h4 class="text-center margin-vertical-1 font-bold">{{$nama_wanita}}</h4>
+                    <h4 class="text-center margin-vertical-1 font-bold"><b>{{$nama_wanita}}</b></h4>
                     <div class="row">
                         <div class="col-md-6">
-                            dilahirkan di {{$tempat_lahir_wanita}}
+                            dilahirkan di <b>{{$tempat_lahir_wanita}}</b>
                         </div>
                         <div class="col-md-6">
-                            tanggal {{$tanggal_lahir_wanita}}
+                            tanggal <b>{{$tanggal_lahir_wanita}}</b>
                         </div>
                         <div class="col-md-6">
-                            anak perempuan dari {{$nama_ayah_wanita}}
+                            anak perempuan dari <b>{{$nama_ayah_wanita}}</b>
                         </div>
                         <div class="col-md-6">
-                            dan {{$nama_ibu_wanita}}
+                            dan <b>{{$nama_ibu_wanita}}</b>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-12 margin-top-2">
                     <p>
-                        Upacara Pernikahan yang kudus ini telah dilakukan dalam Nama TUHAN YESUS KRISTUS oleh: {{$nama_pendeta}}
+                        Upacara Pernikahan yang kudus ini telah dilakukan dalam Nama TUHAN YESUS KRISTUS oleh: <b>{{$nama_pendeta}}</b>
                     </p>
                 </div>
             </div>

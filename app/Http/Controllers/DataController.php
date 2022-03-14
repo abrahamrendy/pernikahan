@@ -108,7 +108,10 @@ class DataController extends Controller
         if (Auth::user()->roles == 1 || Auth::user()->roles == 5) {
             $id = strip_tags($request->input('id'));
 
-            $affected = DB::table('pemberkatan')->where('id', $id)->update(['status' => 3, 'verified_at' => date("Y-m-d H:i:s")]);
+            $temp = DB::table('settings')->first();
+            $no_sertifikat = $temp->no_sertifikat + 1;
+
+            $affected = DB::table('pemberkatan')->where('id', $id)->update(['status' => 3, 'no_sertifikat' => $no_sertifikat, 'verified_at' => date("Y-m-d H:i:s")]);
 
             return response()->json([
                 'success' => '1',
