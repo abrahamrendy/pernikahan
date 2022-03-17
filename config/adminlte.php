@@ -339,12 +339,12 @@ return [
             'url'  => '/data/pp',
             'icon' => 'fas fa-file-alt',
         ],
-        ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'profile',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Pendeta',
+            'url'  => '/pendeta',
+            'icon' => 'fa fa-address-book',
         ],
+        ['header' => 'account_settings'],
         [
             'text' => 'change_password',
             'url'  => 'change-password',

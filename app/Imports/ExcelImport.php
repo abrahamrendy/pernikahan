@@ -96,6 +96,7 @@ class ExcelImport implements ToCollection, WithStartRow
                 'status_pernikahan' => $row[32],
                 'tanggal' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[34] + $row[35]),
                 'tempat' => $row[36],
+                'cabang_asal' => $row[8],
                 'surat_pernyataan' => $row[66],
                 'pas_foto' => $row[67],
                 'created_at' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[0]),

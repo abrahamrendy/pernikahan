@@ -449,7 +449,6 @@
                         dataType : "json",
                         success:function(data)
                         {
-                            console.log(data);
                             $.each(data, function(index, item) {
                                 $('#details_id').val(id);
                                 $('#nama').val(item.nama);
@@ -533,7 +532,6 @@
                         dataType : "json",
                         success:function(data)
                         {
-                            console.log(data);
                             $.each(data, function(index, item) {
                                 $('#edit_id').val(id);
                                 $('#edit_nama_pria').val(pria);
