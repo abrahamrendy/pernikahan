@@ -16,6 +16,8 @@ use App\Http\Controllers\ChangePasswordController;
 |
 */
 
+Route::get('/check/{id}', [App\Http\Controllers\CheckerController::class, 'check'])->name('qr-view');
+
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

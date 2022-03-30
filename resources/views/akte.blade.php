@@ -93,7 +93,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-12 margin-top-2">
+                <div class="col-md-12 margin-top-1">
                     <p>
                         Upacara Pernikahan yang kudus ini telah dilakukan dalam Nama TUHAN YESUS KRISTUS oleh: <b>{{$nama_pendeta}}</b>
                     </p>
@@ -113,7 +113,9 @@
                     <span>GEREJA BETHEL INDONESIA</span>
                     <br>
                     <span class="font-size-xsmall">Jl. Aruna No.19-Bandung 40174</span>
-                    <br><br><br><br>
+                    <br>
+                    <img src="{{ URL::asset($qr_code); }}" height="60" style="margin-top:5px; margin-bottom: 5px">
+                    <br>
                     <span class="font-medium" style="text-decoration: underline;">Pdt. DR. Ir. NIKO NJOTORAHARDJO</span>
                     <br>
                     <div class="font-size-small font-medium" style="letter-spacing: 2px; margin-top: 7px;">GEMBALA SIDANG</div>
@@ -223,7 +225,7 @@
     }
 
     .margin-top-1 {
-        margin-top: 1em !important;
+        margin-top: 0.5em !important;
     }
 
     .margin-vertical-2 {

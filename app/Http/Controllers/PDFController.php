@@ -103,7 +103,8 @@ class PDFController extends Controller
                 'nama_pendeta' =>$db[0]->nama_pendeta,
                 'tanggal_pengesahan' => $date->locale('id')->isoFormat('LL'),
                 'no_sertifikat' => $db[0]->no_sertifikat,
-                'month' => $month
+                'month' => $month,
+                'qr_code' => $db[0]->qr_code
 
             ];
               

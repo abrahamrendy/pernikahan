@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 use Auth;
+use QrCode;
+use DNS2D;
+use Storage;
 
 class DataController extends Controller
 {
@@ -111,7 +115,13 @@ class DataController extends Controller
             $temp = DB::table('settings')->first();
             $no_sertifikat = $temp->no_sertifikat + 1;
 
-            $affected = DB::table('pemberkatan')->where('id', $id)->update(['status' => 3, 'no_sertifikat' => $no_sertifikat, 'verified_at' => date("Y-m-d H:i:s")]);
+            $tempString = route('qr-view',$id);
+            Storage::disk('public_uploads')->put('qrcodes/'.$id.'.png',base64_decode(DNS2D::getBarcodePNG($tempString, "QRCODE", 10,10)));
+            $qr_code = '/uploads'.'/qrcodes/'.$id.".png";
+
+            $update = DB::table('settings')->where('id', 1)->update(['no_sertifikat' => $no_sertifikat]);
+
+            $affected = DB::table('pemberkatan')->where('id', $id)->update(['status' => 3, 'no_sertifikat' => $no_sertifikat, 'qr_code' => $qr_code,'verified_at' => date("Y-m-d H:i:s")]);
 
             return response()->json([
                 'success' => '1',
@@ -133,6 +143,21 @@ class DataController extends Controller
         } else {
             abort(403, 'Unauthorized action.');
         }
+    }
+
+    public function numberToRomanRepresentation($number) {
+        $map = array('M' => 1000, 'CM' => 900, 'D' => 500, 'CD' => 400, 'C' => 100, 'XC' => 90, 'L' => 50, 'XL' => 40, 'X' => 10, 'IX' => 9, 'V' => 5, 'IV' => 4, 'I' => 1);
+        $returnValue = '';
+        while ($number > 0) {
+            foreach ($map as $roman => $int) {
+                if($number >= $int) {
+                    $number -= $int;
+                    $returnValue .= $roman;
+                    break;
+                }
+            }
+        }
+        return $returnValue;
     }
 
     public function submitEditPemberkatan(Request $request){
