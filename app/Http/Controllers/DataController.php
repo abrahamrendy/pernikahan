@@ -165,6 +165,9 @@ class DataController extends Controller
         $tempat = strip_tags($request->input('tempat'));
         $tanggal = strip_tags($request->input('tanggal'));
         $pendeta_id = strip_tags($request->input('pendeta'));
+        if ($pendeta_id == "") {
+            $pendeta_id = null;
+        }
         $pas_foto = strip_tags($request->input('pas_foto_text'));
         $tanggal = date("Y-m-d H:i:s", strtotime($tanggal));
         if($request->hasFile('pas_foto_file')){ 
