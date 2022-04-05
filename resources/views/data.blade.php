@@ -341,7 +341,8 @@
                                     echo '<td>';
                                     if (Auth::user()->roles == 1 || Auth::user()->roles == 3) {
                                         echo '<button type="button" class="verify-btn btn btn-success btn-sm btn-block" data-id ="'.$item->id.'">Verify</button>';
-                                    } else if (Auth::user()->roles == 1) {
+                                        echo '<button type="button" class="decline-btn btn btn-danger btn-sm btn-block" data-id ="'.$item->id.'">Decline</button>';
+                                    } else if (Auth::user()->roles == 1 || Auth::user()->roles == 3) {
                                         echo '<button type="button" class="decline-btn btn btn-danger btn-sm btn-block" data-id ="'.$item->id.'">Decline</button>';
                                     }
                                 } else if ($item->status == 2) {
@@ -357,10 +358,11 @@
                                     // AUTHORIZED STATUS
                                     echo "<td><span class='badge badge-warning'>Authorized</span></td>";
                                     echo '<td>';
-                                    if (Auth::user()->roles == 1 || Auth::user()->roles == 2 || Auth::user()->roles == 3 || Auth::user()->roles == 5) {
+                                    if (Auth::user()->roles == 1 || Auth::user()->roles == 3 || Auth::user()->roles == 5) {
                                         echo '<button type="button" class="certificate-btn btn btn-warning btn-sm btn-block" data-id ="'.$item->id.'"><a href="'.route('certificate',$item->id).'">Certificate</a></button>';
-                                    } else if (Auth::user()->roles == 1) {
                                         echo '<button type="button" class="decline-btn btn btn-danger btn-sm btn-block" data-id ="'.$item->id.'">Decline</button>';
+                                    } else if (Auth::user()->roles == 1 || Auth::user()->roles == 5) {
+                                        echo '<button type="button" class="certificate-btn btn btn-warning btn-sm btn-block" data-id ="'.$item->id.'"><a href="'.route('certificate',$item->id).'">Certificate</a></button>';
                                     }
                                 } else {
                                     // DECLINED STATUS

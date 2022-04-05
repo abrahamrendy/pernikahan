@@ -68,7 +68,7 @@ class PDFController extends Controller
         if (!empty($db)){
             $date = new Carbon($db[0]->tanggal);
             if (strtolower($db[0]->status_pernikahan) == 'dd') {
-                $type = "Didoakan";  
+                $type = "Diberkati";  
             } else if (strtolower($db[0]->status_pernikahan) == "sp") {
                 $type = "Diberkati";
             } else if (strtolower($db[0]->status_pernikahan) == "pp") {
