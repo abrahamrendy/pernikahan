@@ -368,9 +368,8 @@
                                     // DECLINED STATUS
                                     echo "<td><span class='badge badge-danger'>Declined</span></td>";
                                     echo '<td>';
-                                    if (Auth::user()->roles == 1) {
-                                        echo '<button type="button" class="submit-btn btn btn-primary btn-sm btn-block" data-id ="'.$item->id.'">Submit</button>
-                                                <button type="button" class="verify-btn btn btn-success btn-sm btn-block" data-id ="'.$item->id.'">Verify</button>';
+                                    if (Auth::user()->roles == 1 || Auth::user()->roles == 3) {
+                                        echo '<button type="button" class="verify-btn btn btn-success btn-sm btn-block" data-id ="'.$item->id.'">Verify</button>';
                                     }
                                 }
                                 echo '<button type="button" class="edit-btn btn btn-secondary btn-sm btn-block" data-toggle="modal" data-target="#edit-modal" data-id ="'.$item->id.'">Edit</button>
