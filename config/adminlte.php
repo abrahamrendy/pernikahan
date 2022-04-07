@@ -327,6 +327,7 @@ return [
         [
             'text' => 'Didoakan (DD)',
             'url'  => '/data/dd',
+            'classes' => 'non-cabang',
             'icon' => 'fas fa-file-alt',
         ],
         [
@@ -337,6 +338,7 @@ return [
         [
             'text' => 'Diteguhkan (PP)',
             'url'  => '/data/pp',
+            'classes' => 'non-cabang',
             'icon' => 'fas fa-file-alt',
         ],
         [

@@ -26,9 +26,20 @@
 @stop
 
 @section('css')
-    <!-- <link rel="stylesheet" href="/css/admin_custom.css"> -->
+    <link href="{{ URL::asset('css/admin_custom.css'); }} " rel="stylesheet">
 @stop
 
 @section('js')
     <!-- <script> console.log('Hi!'); </script> -->
+    <script>
+        $(document).ready(function(){
+            <?php
+              if(Auth::user()->roles == 2) {
+            ?>
+                $('.non-cabang').addClass('hide');
+            <?php
+              }
+            ?>
+        });
+    </script>
 @stop
