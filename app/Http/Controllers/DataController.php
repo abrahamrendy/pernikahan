@@ -207,7 +207,7 @@ class DataController extends Controller
         $tempatlahir = strip_tags($request->input('tempatlahir'));
         $tanggallahir = strip_tags($request->input('tanggallahir'));
         $tanggallahir = date("Y-m-d H:i:s", strtotime($tanggallahir));
-        // STATUS NIKAH
+        $statusnikah = strip_tags($request->input('statusnikah'));
         $ktp = strip_tags($request->input('ktp_text'));
         if($request->hasFile('ktp')){ 
             $ktp_file = $request->file('ktp');
@@ -369,6 +369,7 @@ class DataController extends Controller
                                                                             'tanggal_baptis' => $tanggalbaptis,
                                                                             'gereja_baptis' => $gerejabaptis,
                                                                             'tanggal_berjemaat' => $tanggalberjemaat,
+                                                                            'status_nikah' => $statusnikah,
                                                                             'no_kaj' => $nokaj,
                                                                             'nama_ayah' => $namaayah,
                                                                             'nama_ibu' => $namaibu,

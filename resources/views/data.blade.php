@@ -53,7 +53,16 @@
                     </div>
                     <div class="form-group col-md-4">
                       <label for="statusnikah">Status Nikah</label>
-                      <input type="text" class="form-control" id="statusnikah" placeholder="Status Nikah">
+                      <!-- <input type="text" class="form-control" id="statusnikah" placeholder="Status Nikah"> -->
+                      <br>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="statusnikah" value="1">
+                        <label class="form-check-label" for="statusnikah">Sudah Pernah</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="statusnikah" value="0">
+                        <label class="form-check-label" for="statusnikah">Belum</label>
+                      </div>
                     </div>
                 </div>
                 <div class="form-row">
@@ -90,8 +99,8 @@
                       <input type="text" class="form-control singledatepicker" id="tanggalberjemaat" placeholder="Tanggal Berjemaat" name="tanggalberjemaat">
                     </div>
                     <div class="form-group col-md-4">
-                      <label for="nokaj">No. KAJ</label>
-                      <input type="text" class="form-control" id="nokaj" placeholder="No. KAJ" name="nokaj">
+                      <label for="nokaj">No. KTP</label>
+                      <input type="text" class="form-control" id="nokaj" placeholder="No. KTP" name="nokaj">
                     </div>
                 </div>
                 <div class="form-row">
@@ -480,7 +489,7 @@
                                   date = "";
                                 }
                                 $('#tanggalberjemaat').val(date);
-                                
+                                $("input[name=statusnikah][value='"+item.status_nikah+"']").prop("checked",true);
                                 $('#namaayah').val(item.nama_ayah);
                                 $('#namaibu').val(item.nama_ibu);
                                 $('#ktplink').attr("href", item.ktp);
