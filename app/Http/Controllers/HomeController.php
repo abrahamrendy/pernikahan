@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Auth;
 
 class HomeController extends Controller
@@ -32,7 +33,8 @@ class HomeController extends Controller
     public function index()
     {
         // $this->setRoles();
-        return view('home');
+        $data = DB::select('SELECT status, COUNT(*) as ct FROM pemberkatan GROUP BY status');
+        return view('home', ['data' => $data]);
     }
 
     public function logout()
