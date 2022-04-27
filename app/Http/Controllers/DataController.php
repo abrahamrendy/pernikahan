@@ -168,6 +168,7 @@ class DataController extends Controller
         if ($pendeta_id == "") {
             $pendeta_id = null;
         }
+        $tipe = strip_tags($request->input('edit_tipe'));
         $pas_foto = strip_tags($request->input('pas_foto_text'));
         $tanggal = date("Y-m-d H:i:s", strtotime($tanggal));
         if($request->hasFile('pas_foto_file')){ 
@@ -186,6 +187,7 @@ class DataController extends Controller
                                                                             'tempat' => $tempat,
                                                                             'tanggal' => $tanggal,
                                                                             'pas_foto' => $pas_foto,
+                                                                            'status_pernikahan' => $tipe,
                                                                             'pendeta_id' => $pendeta_id,
                                                                             'updated_at' => date("Y-m-d H:i:s")
                                                                         ]);

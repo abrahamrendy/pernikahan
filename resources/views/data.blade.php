@@ -269,6 +269,15 @@
                         <textarea class="form-control" id="edit_pasfoto_textarea" rows="3" name="pas_foto_text"></textarea>
                     </div>
                     <div class="form-group col-md-12">
+                        <label for="edit_tipe">Tipe</label>
+                        <select class="form-control" name="edit_tipe" id="edit_tipe">
+                          <option disabled selected></option>
+                          <option value="sp">Diberkati</option>
+                          <option value="pp">Diteguhkan</option>
+                          <option value="dd">Didoakan</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-12">
                         <label for="pendeta">Pendeta</label>
                         <select class="form-control" name="pendeta" id="pendeta">
                           <option disabled selected></option>
@@ -542,6 +551,7 @@
                         dataType : "json",
                         success:function(data)
                         {
+                          console.log(data);
                             $.each(data, function(index, item) {
                                 $('#edit_id').val(id);
                                 $('#edit_nama_pria').val(pria);
@@ -554,6 +564,8 @@
                                 $('#edit_pasfoto_textarea').val(item.pas_foto);
 
                                 $('#pendeta').val(item.pendeta_id);
+                                var tipe = item.status_pernikahan;
+                                $('#edit_tipe').val(tipe.toLowerCase());
                             });
 
                         },

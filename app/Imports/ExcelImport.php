@@ -99,7 +99,8 @@ class ExcelImport implements ToCollection, WithStartRow
                 $pemberkatan = Pemberkatan::create([
                     'mempelai_pria' => $pria->id,
                     'mempelai_wanita' => $wanita->id,
-                    'status_pernikahan' => $row[32],
+                    // 'status_pernikahan' => $row[32],
+                    'status_pernikahan' => "sp",
                     'tanggal' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[34] + $row[35]),
                     'tempat' => $row[36],
                     'cabang_asal' => $row[8],
