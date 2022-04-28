@@ -268,15 +268,17 @@
                         <br>
                         <textarea class="form-control" id="edit_pasfoto_textarea" rows="3" name="pas_foto_text"></textarea>
                     </div>
-                    <div class="form-group col-md-12">
-                        <label for="edit_tipe">Tipe</label>
-                        <select class="form-control" name="edit_tipe" id="edit_tipe">
-                          <option disabled selected></option>
-                          <option value="sp">Diberkati</option>
-                          <option value="pp">Diteguhkan</option>
-                          <option value="dd">Didoakan</option>
-                        </select>
-                    </div>
+                    <?php if (Auth::user()->roles != 2) { ?>
+                      <div class="form-group col-md-12">
+                          <label for="edit_tipe">Tipe</label>
+                          <select class="form-control" name="edit_tipe" id="edit_tipe">
+                            <option disabled selected></option>
+                            <option value="sp">Diberkati</option>
+                            <option value="pp">Diteguhkan</option>
+                            <option value="dd">Didoakan</option>
+                          </select>
+                      </div>
+                    <?php } ?>
                     <div class="form-group col-md-12">
                         <label for="pendeta">Pendeta</label>
                         <select class="form-control" name="pendeta" id="pendeta">

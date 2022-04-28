@@ -239,7 +239,7 @@
     }
 
     .line-height-2 {
-        line-height: 2em;
+        line-height: 1.5em;
     }
 </style>
 </html>
