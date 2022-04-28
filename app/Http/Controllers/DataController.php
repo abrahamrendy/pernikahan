@@ -33,7 +33,7 @@ class DataController extends Controller
             $data = DB::select('SELECT t.nama as nama_pria, calon_mempelai.nama as nama_wanita, t.*
                             FROM (SELECT pemberkatan.*, calon_mempelai.nama as nama, pendeta.nama_pendeta as nama_pendeta FROM pemberkatan INNER JOIN calon_mempelai ON pemberkatan.mempelai_pria = calon_mempelai.id LEFT OUTER JOIN pendeta ON pemberkatan.pendeta_id = pendeta.id ) as t
                             INNER JOIN calon_mempelai ON t.mempelai_wanita = calon_mempelai.id
-                            WHERE t.status_pernikahan = ? ORDER BY t.id DESC',[strtoupper($type)]);
+                            WHERE t.status_pernikahan = ? ORDER BY t.id DESC',[strtolower($type)]);
         } else if (Auth::user()->roles == 2){
             // $data = DB::select('SELECT t.nama as nama_pria, calon_mempelai.nama as nama_wanita, t.*
             //                 FROM (SELECT pemberkatan.*, calon_mempelai.nama as nama, pendeta.nama_pendeta as nama_pendeta FROM pemberkatan INNER JOIN calon_mempelai ON pemberkatan.mempelai_pria = calon_mempelai.id LEFT OUTER JOIN pendeta ON pemberkatan.pendeta_id = pendeta.id ) as t
@@ -43,17 +43,17 @@ class DataController extends Controller
             $data = DB::select('SELECT t.nama as nama_pria, calon_mempelai.nama as nama_wanita, t.*
                             FROM (SELECT pemberkatan.*, calon_mempelai.nama as nama, pendeta.nama_pendeta as nama_pendeta FROM pemberkatan INNER JOIN calon_mempelai ON pemberkatan.mempelai_pria = calon_mempelai.id LEFT OUTER JOIN pendeta ON pemberkatan.pendeta_id = pendeta.id ) as t
                             INNER JOIN calon_mempelai ON t.mempelai_wanita = calon_mempelai.id
-                            WHERE t.status = 0 OR t.status = 1 OR t.status = 4 ORDER BY t.status, t.id DESC');
+                            WHERE (t.status = 0 OR t.status = 1 OR t.status = 4) ORDER BY t.status, t.id DESC');
         } else if (Auth::user()->roles == 3) {
             $data = DB::select('SELECT t.nama as nama_pria, calon_mempelai.nama as nama_wanita, t.*
                             FROM (SELECT pemberkatan.*, calon_mempelai.nama as nama, pendeta.nama_pendeta as nama_pendeta FROM pemberkatan INNER JOIN calon_mempelai ON pemberkatan.mempelai_pria = calon_mempelai.id LEFT OUTER JOIN pendeta ON pemberkatan.pendeta_id = pendeta.id ) as t
                             INNER JOIN calon_mempelai ON t.mempelai_wanita = calon_mempelai.id
-                            WHERE t.status_pernikahan = ? AND t.status = 1 OR t.status = 2 OR t.status = 3 OR t.status = 4 ORDER BY t.status, t.id DESC',[strtoupper($type)]);
+                            WHERE t.status_pernikahan = ? AND (t.status = 1 OR t.status = 2 OR t.status = 3 OR t.status = 4) ORDER BY t.status, t.id DESC',[strtolower($type)]);
         } else if (Auth::user()->roles == 5) {
             $data = DB::select('SELECT t.nama as nama_pria, calon_mempelai.nama as nama_wanita, t.*
                             FROM (SELECT pemberkatan.*, calon_mempelai.nama as nama, pendeta.nama_pendeta as nama_pendeta FROM pemberkatan INNER JOIN calon_mempelai ON pemberkatan.mempelai_pria = calon_mempelai.id LEFT OUTER JOIN pendeta ON pemberkatan.pendeta_id = pendeta.id ) as t
                             INNER JOIN calon_mempelai ON t.mempelai_wanita = calon_mempelai.id
-                            WHERE t.status_pernikahan = ? AND t.status = 2 OR t.status = 3 ORDER BY t.status, t.id DESC',[strtoupper($type)]);
+                            WHERE t.status_pernikahan = ? AND (t.status = 2 OR t.status = 3) ORDER BY t.status, t.id DESC',[strtolower($type)]);
         }
 
         $pendeta = DB::table('pendeta')->get();
