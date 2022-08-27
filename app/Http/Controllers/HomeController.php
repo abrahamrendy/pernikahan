@@ -33,7 +33,12 @@ class HomeController extends Controller
     public function index()
     {
         // $this->setRoles();
-        $data = DB::select('SELECT status, COUNT(*) as ct FROM pemberkatan GROUP BY status');
+        $cabang = Auth::user()->cabang;
+        if ($cabang != null) {
+            $data = DB::select('SELECT status, COUNT(*) as ct FROM pemberkatan INNER JOIN calon_mempelai ON pemberkatan.mempelai_pria = calon_mempelai.id WHERE calon_mempelai.tempat_ibadah = ? GROUP BY status',[$cabang]);
+        } else {
+            $data = DB::select('SELECT status, COUNT(*) as ct FROM pemberkatan INNER JOIN calon_mempelai ON pemberkatan.mempelai_pria = calon_mempelai.id GROUP BY status');
+        }
         return view('home', ['data' => $data]);
     }
 
