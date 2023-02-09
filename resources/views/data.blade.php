@@ -319,6 +319,7 @@
                         <th>No</th>
                         <th>Calon Pria</th>
                         <th>Calon Wanita</th>
+                        <th>Cabang</th>
                         <th>Tanggal</th>
                         <th>Tempat</th>
                         <th>Pas Foto</th>
@@ -336,6 +337,7 @@
                                 echo "<tr><td>".$ct."</td>";
                                 echo "<td><a class = 'details-person details-pria' href = '#' data-id =".$item->mempelai_pria." data-toggle='modal' data-target='.bd-example-modal-lg'>".$item->nama_pria."</a></td>";
                                 echo "<td><a href = '#' class = 'details-person details-wanita' data-id =".$item->mempelai_wanita." data-toggle='modal' data-target='.bd-example-modal-lg'>".$item->nama_wanita."</a></td>";
+                                echo "<td>".$item->cabang_asal."</td>";
                                 echo "<td>".date("D, d-m-Y, g:i A", strtotime($item->tanggal))."</td>";
                                 echo "<td>".$item->tempat."</td>";
                                 if (isset($item->pas_foto)) {

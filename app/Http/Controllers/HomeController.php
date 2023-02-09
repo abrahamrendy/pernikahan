@@ -39,7 +39,7 @@ class HomeController extends Controller
         } else {
             $data = DB::select('SELECT status, COUNT(*) as ct FROM pemberkatan INNER JOIN calon_mempelai ON pemberkatan.mempelai_pria = calon_mempelai.id GROUP BY status');
         }
-        return view('home', ['data' => $data]);
+        return view('home', ['data' => $data, 'user' => Auth::user()]);
     }
 
     public function logout()
