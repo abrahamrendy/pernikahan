@@ -406,9 +406,11 @@
                         <th>No</th>
                         <th>Calon Pria</th>
                         <th>Calon Wanita</th>
+                        <th>Cabang</th>
                         <th>Tanggal</th>
                         <th>Tempat</th>
                         <th>Pas Foto</th>
+                        <th>Pendeta</th>
                         <th>Tanggal Submit</th>
                         <th>Status</th>
                         <th>Action</th>
