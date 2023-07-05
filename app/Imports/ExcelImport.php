@@ -27,7 +27,7 @@ class ExcelImport implements ToCollection, WithStartRow
             $kaj_wanita = $row[28];
             $count_wanita = CalonMempelai::where('kaj', $kaj_wanita)->count();
             
-            if ($count_pria > 0 && $count_wanita > 0) {
+            if ($count_pria == 0 && $count_wanita == 0) {
                 // PRIA
                 $pria = CalonMempelai::create([
                     'nama' => $row[2],
