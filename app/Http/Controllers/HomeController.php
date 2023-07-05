@@ -45,7 +45,7 @@ class HomeController extends Controller
         } else if (Auth::user()->roles == 5) {
             $data = DB::select('SELECT status, COUNT(*) as ct FROM pemberkatan GROUP BY status');
         }
-        return view('home', ['data' => $data]);
+        return view('home', ['data' => $data, 'user' => Auth::user()]);
     }
 
     public function logout()
