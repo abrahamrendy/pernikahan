@@ -31,7 +31,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/pendeta', [App\Http\Controllers\PendetaController::class, 'index'])->name('pendeta');
 Route::get('/get_pendeta/{id}', [App\Http\Controllers\PendetaController::class, 'getPendeta']);
+Route::post('/del_pendeta', [App\Http\Controllers\PendetaController::class, 'delPendeta']);
 Route::post('/edit_pendeta', [App\Http\Controllers\PendetaController::class, 'submitEditPendeta'])->name('submitEditPendeta');
+Route::post('/add_pendeta', [App\Http\Controllers\PendetaController::class, 'submitAddPendeta'])->name('submitAddPendeta');
 
 
 

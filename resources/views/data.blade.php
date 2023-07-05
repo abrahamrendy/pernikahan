@@ -323,6 +323,7 @@
                         <th>Tanggal</th>
                         <th>Tempat</th>
                         <th>Pas Foto</th>
+                        <th>Cabang</th>
                         <th>Pendeta</th>
                         <th>Tanggal Submit</th>
                         <th>Status</th>
@@ -345,6 +346,7 @@
                                 } else {
                                   echo "<td></td>";
                                 }
+                                echo "<td>".$item->cabang_asal."</td>";
                                 echo "<td>".$item->nama_pendeta."</td>";
                                 echo "<td>".$item->created_at."</td>";
                                 if ($item->status == 0) {
