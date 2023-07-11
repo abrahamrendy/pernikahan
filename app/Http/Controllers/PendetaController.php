@@ -25,7 +25,16 @@ class PendetaController extends Controller
      */
     public function index()
     {
-        $pendeta = DB::table('pendeta')->get();
+        $cabang_asal = Auth::user()->cabang;
+        $kdrayon = Auth::user()->kdrayon;
+        $roles = Auth::user()->roles;
+        if ($roles == 1 || $roles == 5) {
+            $pendeta = DB::table('pendeta')->get();
+        } else if ($roles == 3)  {
+            $pendeta = DB::table('pendeta')->join('cabang', 'pendeta.cabang', '=', 'cabang.nmcabang')->where('cabang.kdrayon', $kdrayon)->get();
+        } else {
+            $pendeta = DB::table('pendeta')->where('cabang', $cabang_asal)->get();
+        }
         $cabang = DB::table('cabang')->get();
         
         return view('pendeta', ['data' => $pendeta, 'cabang' => $cabang]);
