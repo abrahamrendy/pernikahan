@@ -23,9 +23,11 @@ class ExcelImport implements ToCollection, WithStartRow
         foreach ($rows as $row) 
         {
             $kaj_pria = $row[13];
-            $count_pria = CalonMempelai::where('kaj', $kaj_pria)->count();
+            // BEFORE: NO KAJ, NOW: NO KTP
+            $count_pria = CalonMempelai::where('no_kaj', $kaj_pria)->count(); 
             $kaj_wanita = $row[28];
-            $count_wanita = CalonMempelai::where('kaj', $kaj_wanita)->count();
+            // BEFORE: NO KAJ, NOW: NO KTP
+            $count_wanita = CalonMempelai::where('no_kaj', $kaj_wanita)->count();
             
             if ($count_pria == 0 && $count_wanita == 0) {
                 // PRIA
