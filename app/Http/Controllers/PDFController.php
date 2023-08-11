@@ -39,7 +39,58 @@ class PDFController extends Controller
     }
 
     public function view() {
-        return view('akte');
+        $id = 5;
+
+        $db = DB::select('SELECT t.nama as nama_pria, t.tempat_lahir as tempat_lahir_pria, t.tanggal_lahir as tanggal_lahir_pria, t.nama_ayah as nama_ayah_pria, t.nama_ibu as nama_ibu_pria, calon_mempelai.nama as nama_wanita, calon_mempelai.tempat_lahir as tempat_lahir_wanita, calon_mempelai.tanggal_lahir as tanggal_lahir_wanita, calon_mempelai.nama_ayah as nama_ayah_wanita, calon_mempelai.nama_ibu as nama_ibu_wanita, t.*
+                            FROM (SELECT pemberkatan.*, calon_mempelai.nama as nama , calon_mempelai.tempat_lahir as tempat_lahir, calon_mempelai.tanggal_lahir as tanggal_lahir, calon_mempelai.nama_ayah as nama_ayah, calon_mempelai.nama_ibu as nama_ibu, pendeta.nama_pendeta as nama_pendeta FROM pemberkatan INNER JOIN calon_mempelai ON pemberkatan.mempelai_pria = calon_mempelai.id LEFT OUTER JOIN pendeta ON pemberkatan.pendeta_id = pendeta.id) as t
+                            INNER JOIN calon_mempelai ON t.mempelai_wanita = calon_mempelai.id WHERE t.id = ? AND t.status = 3',[strtoupper($id)]);
+
+        if (!empty($db)){
+            $date = new Carbon($db[0]->tanggal);
+            if (strtolower($db[0]->status_pernikahan) == 'dd') {
+                $type = "Diberkati";  
+            } else if (strtolower($db[0]->status_pernikahan) == "sp") {
+                $type = "Diberkati";
+            } else if (strtolower($db[0]->status_pernikahan) == "pp") {
+                $type = "Diteguhkan";
+            } else {
+                $type = "";
+            }
+
+            $tanggal_lahir_pria = new Carbon($db[0]->tanggal_lahir_pria);
+            $tanggal_lahir_wanita = new Carbon($db[0]->tanggal_lahir_wanita);
+            // $tanggal_pengesahan = new Carbon($db[0]->verified_at);
+            $month = $this->numberToRomanRepresentation(date('n', strtotime($date)));
+            // $year = date("y", strtotime($date));
+
+            $data = [
+                'title' => 'Akte Nikah '.$db[0]->nama_pria.' '.$db[0]->nama_wanita,
+                'hari' => $date->locale('id')->isoFormat('dddd'),
+                'tanggal' => $date->locale('id')->isoFormat('LL'),
+                'type' => $type,
+                'status_pernikahan' => strtoupper($db[0]->status_pernikahan),
+                'nama_pria' => $db[0]->nama_pria,
+                'tempat_lahir_pria' => $db[0]->tempat_lahir_pria,
+                'tanggal_lahir_pria' => $tanggal_lahir_pria->locale('id')->isoFormat('LL'),
+                'nama_ayah_pria' => $db[0]->nama_ayah_pria,
+                'nama_ibu_pria' => $db[0]->nama_ibu_pria,
+                'nama_wanita' => $db[0]->nama_wanita,
+                'tempat_lahir_wanita' => $db[0]->tempat_lahir_wanita,
+                'tanggal_lahir_wanita' => $tanggal_lahir_wanita->locale('id')->isoFormat('LL'),
+                'nama_ayah_wanita' => $db[0]->nama_ayah_wanita,
+                'nama_ibu_wanita' => $db[0]->nama_ibu_wanita,
+                'pas_foto' =>$db[0]->pas_foto,
+                'nama_pendeta' =>$db[0]->nama_pendeta,
+                'tanggal_pengesahan' => $date->locale('id')->isoFormat('LL'),
+                'no_sertifikat' => $db[0]->no_sertifikat,
+                'month' => $month,
+                'qr_code' => $db[0]->qr_code
+
+            ];
+            return view('akte', $data);
+        } else {
+                abort(403, 'Unauthorized action.');
+            }
     }
 
     public function numberToRomanRepresentation($number) {

@@ -185,7 +185,7 @@
         /*width: 210mm;*/
         /*height: 297mm;*/
         font-size: 8pt;
-        background-image: url({{ URL::asset('css/frame.png'); }});
+        background-image: url({{ URL::asset('css/sicc_frame.png'); }});
         background-position: top;
         background-size: 100% 100%;
         background-repeat: no-repeat;
